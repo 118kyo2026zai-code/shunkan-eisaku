@@ -222,12 +222,14 @@ function nextQuestion(){
   current++;
 
   if(current >= data.length){
-
     current = 0;
-
   }
 
   showQuestion();
+
+  setTimeout(() => {
+    start();
+  }, 300);
 
 }
 
