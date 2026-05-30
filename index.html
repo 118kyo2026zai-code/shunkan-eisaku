@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>瞬間英作音声練習ドリル</title>
+
+<style>
+body{
+  font-family:sans-serif;
+  text-align:center;
+  padding:20px;
+}
+
+button{
+  font-size:20px;
+  margin:10px;
+  padding:10px 20px;
+}
+
+input{
+  font-size:20px;
+  width:80%;
+  padding:10px;
+  margin-top:20px;
+}
+
+#result{
+  margin-top:20px;
+  font-size:20px;
+  white-space:pre-line;
+}
+
+#answer{
+  margin-top:15px;
+  font-size:24px;
+  color:blue;
+}
+</style>
+</head>
+
+<body>
+
+<h2 id="ja"></h2>
+
+<div id="answer"></div>
+
+<input
+type="text"
+id="voiceText"
+placeholder="ここに音声認識結果が表示されます">
+
+<br>
+
+<button onclick="start()">🎤開始</button>
+<button onclick="stop()">■終了</button>
+<button onclick="nextQuestion()">➡次へ</button>
+<button onclick="testVoice()">🔊音声テスト</button>
+
+<div id="result"></div>
+
+<script>
+
+const data = [
+  {en:"I play soccer.", ja:"私はサッカーをします"},
+  {en:"She is my friend.", ja:"彼女は私の友達です"},
+  {en:"I eat breakfast.", ja:"私は朝ごはんを食べます"},
+  {en:"I like apples.", ja:"私はりんごが好きです"}
+];
+
+let current = 0;
+let speech = null;
+let latestText = "";
+
+function normalize(text){
+
+  return text
+    .toLowerCase()
+    .replace(/[.,!?]/g,"")
+    .trim();
+
+}
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+
+  speech = new SpeechRecognition();
+
+  speech.lang = "en-US";
+  speech.continuous = false;
+  speech.interimResults = false;
+
+  speech.onresult = function(e){
+
+    latestText =
+      e.results[0][0].transcript;
+
+    document.getElementById("voiceText").value =
+      latestText;
+  };
+
+}else{
+
+  alert("このブラウザは音声認識に対応していません");
+
+}
+
+function show(){
+
+  document.getElementById("ja").innerText =
+    data[current].ja;
+
+  document.getElementById("answer").innerText = "";
+
+  document.getElementById("result").innerText = "";
+
+  document.getElementById("voiceText").value = "";
+
+  latestText = "";
+
+}
+
+show();
+
+function start(){
+
+  latestText = "";
+
+  try{
+    speech.start();
+  }catch(error){
+    console.log(error);
+  }
+
+}
+
+function stop(){
+
+  if(speech){
+    speech.stop();
+  }
+
+  setTimeout(() => {
+    judge();
+  },500);
+
+}
+
+function judge(){
+
+  const user =
+    normalize(latestText);
+
+  const correct =
+    normalize(data[current].en);
+
+  speechSynthesis.cancel();
+
+  if(user === correct){
+
+    document.getElementById("result").innerText =
+      "✅ OK";
+
+    document.getElementById("answer").innerText =
+      data[current].en;
+
+    const uttr =
+      new SpeechSynthesisUtterance(
+        data[current].en
+      );
+
+    uttr.lang = "en-US";
+    uttr.rate = 0.9;
+
+    speechSynthesis.speak(uttr);
+
+  }else{
+
+    document.getElementById("result").innerText =
+      "❌ 間違ってます\n\nあなた："
+      + latestText +
+      "\n正解："
+      + data[current].en;
+
+    document.getElementById("answer").innerText =
+      data[current].en;
+
+    const uttr =
+      new SpeechSynthesisUtterance(
+        "Incorrect. Try again. " +
+        data[current].en
+      );
+
+    uttr.lang = "en-US";
+    uttr.rate = 0.9;
+
+    speechSynthesis.speak(uttr);
+
+  }
+
+}
+
+function nextQuestion(){
+
+  current++;
+
+  if(current >= data.length){
+    current = 0;
+  }
+
+  show();
+
+}
+
+function testVoice(){
+
+  speechSynthesis.cancel();
+
+  const uttr =
+    new SpeechSynthesisUtterance(
+      "I play soccer."
+    );
+
+  uttr.lang = "en-US";
+
+  speechSynthesis.speak(uttr);
+
+}
+
+</script>
+
+</body>
+</html>
