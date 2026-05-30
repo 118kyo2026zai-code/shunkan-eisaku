@@ -30,6 +30,12 @@ input{
   white-space:pre-line;
 }
 
+#answer{
+  margin-top:15px;
+  font-size:24px;
+  color:blue;
+}
+
 </style>
 </head>
 
@@ -37,7 +43,7 @@ input{
 
 <h2 id="ja"></h2>
 
-<h3 id="en"></h3>
+<div id="answer"></div>
 
 <input
 id="voiceText"
@@ -58,59 +64,31 @@ placeholder="ここに認識結果が表示されます">
 
 const data = [
 
-{en:"I play soccer.",ja:"私はサッカーをします"},
-
-{en:"She is my friend.",ja:"彼女は私の友達です"},
-
-{en:"I eat breakfast.",ja:"私は朝ごはんを食べます"},
-
-{en:"I like apples.",ja:"私はりんごが好きです"}
+  {en:"I play soccer.", ja:"私はサッカーをします"},
+  {en:"She is my friend.", ja:"彼女は私の友達です"},
+  {en:"I eat breakfast.", ja:"私は朝ごはんを食べます"},
+  {en:"I like apples.", ja:"私はりんごが好きです"}
 
 ];
 
 let current = 0;
-
-let speech;
-
+let speech = null;
 let latestText = "";
 
-function showQuestion(){
+function normalize(text){
 
-  document.getElementById("ja").innerText =
-    data[current].ja;
-
-  document.getElementById("en").innerText =
-    data[current].en;
-
-  document.getElementById("voiceText").value = "";
-
-  document.getElementById("result").innerText = "";
-
-  setTimeout(() => {
-
-    document.getElementById("voiceText").focus();
-
-  },200);
+  return text
+    .toLowerCase()
+    .replace(/[.,!?]/g,"")
+    .trim();
 
 }
 
-showQuestion();
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
 
-function start(){
-
-  latestText = "";
-
-  const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
-
-  if(!SpeechRecognition){
-
-    alert("このブラウザは音声認識に対応していません");
-
-    return;
-
-  }
+if(SpeechRecognition){
 
   speech = new SpeechRecognition();
 
@@ -123,23 +101,49 @@ function start(){
   speech.onresult = function(e){
 
     latestText =
-      e.results[e.results.length-1][0].transcript;
+      e.results[e.results.length - 1][0].transcript;
 
     document.getElementById("voiceText").value =
       latestText;
 
   };
 
-  speech.start();
+}else{
+
+  alert("このブラウザは音声認識に対応していません");
 
 }
 
-function normalize(text){
+function showQuestion(){
 
-  return text
-    .toLowerCase()
-    .replace(/[.,!?]/g,"")
-    .trim();
+  document.getElementById("ja").innerText =
+    data[current].ja;
+
+  document.getElementById("answer").innerText = "";
+
+  document.getElementById("result").innerText = "";
+
+  document.getElementById("voiceText").value = "";
+
+  latestText = "";
+
+}
+
+showQuestion();
+
+function start(){
+
+  latestText = "";
+
+  try{
+
+    speech.start();
+
+  }catch(error){
+
+    console.log(error);
+
+  }
 
 }
 
@@ -153,65 +157,65 @@ function stop(){
 
   setTimeout(() => {
 
-    const user =
-      normalize(latestText);
+    judge();
 
-    const correct =
-      normalize(data[current].en);
+  },100);
 
-    speechSynthesis.cancel();
+}
 
-    if(user === correct){
+function judge(){
 
-      document.getElementById("result").innerText =
-        "✅ Correct!";
+  const user =
+    normalize(latestText);
 
-      const ok =
-        new SpeechSynthesisUtterance("Correct");
+  const correct =
+    normalize(data[current].en);
 
-      ok.lang = "en-US";
+  speechSynthesis.cancel();
 
-      speechSynthesis.speak(ok);
+  if(user === correct){
 
-    }
+    document.getElementById("result").innerText =
+      "✅ Correct!";
 
-    else{
+    document.getElementById("answer").innerText =
+      data[current].en;
 
-      document.getElementById("result").innerText =
-        "❌ Incorrect\n\nあなた： "
-        + latestText +
-        "\n\n正解： "
-        + data[current].en;
+    const uttr =
+      new SpeechSynthesisUtterance(
+        "Correct. " + data[current].en
+      );
 
-      const ng =
-        new SpeechSynthesisUtterance(
-          "Incorrect. Try again."
-        );
+    uttr.lang = "en-US";
+    uttr.rate = 1.0;
 
-      ng.lang = "en-US";
+    speechSynthesis.speak(uttr);
 
-      ng.rate = 1.0;
+  }
 
-      ng.onend = function(){
+  else{
 
-        const answer =
-          new SpeechSynthesisUtterance(
-            data[current].en
-          );
+    document.getElementById("result").innerText =
+      "❌ 間違ってます\n\nあなた： "
+      + latestText +
+      "\n\n正解： "
+      + data[current].en;
 
-        answer.lang = "en-US";
+    document.getElementById("answer").innerText =
+      data[current].en;
 
-        answer.rate = 0.9;
+    const uttr =
+      new SpeechSynthesisUtterance(
+        "Incorrect. Try again. "
+        + data[current].en
+      );
 
-        speechSynthesis.speak(answer);
+    uttr.lang = "en-US";
+    uttr.rate = 1.0;
 
-      };
+    speechSynthesis.speak(uttr);
 
-      speechSynthesis.speak(ng);
-
-    }
-
-  },300);
+  }
 
 }
 
@@ -222,14 +226,18 @@ function nextQuestion(){
   current++;
 
   if(current >= data.length){
+
     current = 0;
+
   }
 
   showQuestion();
 
   setTimeout(() => {
+
     start();
-  }, 300);
+
+  },300);
 
 }
 
