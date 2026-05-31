@@ -17,55 +17,81 @@ body{
   justify-content:center;
 
   padding:20px;
-
   box-sizing:border-box;
 }
 
 #ja{
-  font-size:36px;
+  font-size:52px;
   font-weight:bold;
   margin-bottom:30px;
+  line-height:1.4;
 }
 
 #answer{
   margin-top:15px;
-  font-size:28px;
+  font-size:32px;
   color:blue;
 }
 
 input{
   width:90%;
-  font-size:28px;
+  max-width:700px;
+
+  font-size:30px;
+
   padding:15px;
+
+  margin-top:20px;
+
+  text-align:center;
+}
+
+.button-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+
   margin-top:20px;
 }
 
 button{
-  font-size:24px;
-  padding:15px 25px;
-  margin:8px;
-  border-radius:12px;
+
+  width:240px;
+
+  height:75px;
+
+  font-size:28px;
+
+  border-radius:15px;
+
+  cursor:pointer;
 }
 
 #result{
   margin-top:25px;
-  font-size:26px;
+  font-size:28px;
   white-space:pre-line;
 }
 
 @media (max-width:600px){
 
   #ja{
-    font-size:42px;
+    font-size:56px;
   }
 
   input{
-    font-size:30px;
+    font-size:32px;
   }
 
   button{
-    font-size:26px;
-    padding:16px 24px;
+    width:260px;
+    height:80px;
+    font-size:30px;
+  }
+
+  #result{
+    font-size:30px;
   }
 
 }
@@ -84,13 +110,15 @@ id="voiceText"
 type="text"
 placeholder="ここに認識結果が表示されます">
 
-<br>
+<div class="button-area">
 
-<button onclick="start()">🎤開始</button>
+<button onclick="start()">開始</button>
 
-<button onclick="stop()">■終了</button>
+<button onclick="stop()">終了</button>
 
-<button onclick="nextQuestion()">➡次へ</button>
+<button onclick="nextQuestion()">次の問題</button>
+
+</div>
 
 <div id="result"></div>
 
@@ -230,7 +258,7 @@ function judge(){
   else{
 
     document.getElementById("result").innerText =
-      "❌ 間違ってます\n\nあなた： "
+      "❌ 間違っています\n\nあなた： "
       + latestText +
       "\n\n正解： "
       + data[current].en;
