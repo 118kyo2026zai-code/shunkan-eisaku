@@ -9,31 +9,65 @@
 body{
   font-family:sans-serif;
   text-align:center;
+
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
   padding:20px;
+
+  box-sizing:border-box;
 }
 
-button{
-  font-size:20px;
-  margin:10px;
-  padding:10px 20px;
-}
-
-input{
-  width:80%;
-  font-size:22px;
-  padding:10px;
-}
-
-#result{
-  margin-top:20px;
-  font-size:22px;
-  white-space:pre-line;
+#ja{
+  font-size:36px;
+  font-weight:bold;
+  margin-bottom:30px;
 }
 
 #answer{
   margin-top:15px;
-  font-size:24px;
+  font-size:28px;
   color:blue;
+}
+
+input{
+  width:90%;
+  font-size:28px;
+  padding:15px;
+  margin-top:20px;
+}
+
+button{
+  font-size:24px;
+  padding:15px 25px;
+  margin:8px;
+  border-radius:12px;
+}
+
+#result{
+  margin-top:25px;
+  font-size:26px;
+  white-space:pre-line;
+}
+
+@media (max-width:600px){
+
+  #ja{
+    font-size:42px;
+  }
+
+  input{
+    font-size:30px;
+  }
+
+  button{
+    font-size:26px;
+    padding:16px 24px;
+  }
+
 }
 
 </style>
