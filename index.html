@@ -41,7 +41,8 @@ input{
 
   padding:15px;
 
-  margin-top:20px;
+  display:block;
+  margin:20px auto;
 
   text-align:center;
 }
@@ -50,18 +51,19 @@ input{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:15px;
+
+  gap:25px;
 
   margin-top:20px;
 }
 
 button{
 
-  width:240px;
+  width:280px;
 
-  height:75px;
+  height:90px;
 
-  font-size:28px;
+  font-size:32px;
 
   border-radius:15px;
 
@@ -77,17 +79,17 @@ button{
 @media (max-width:600px){
 
   #ja{
-    font-size:56px;
+    font-size:68px;
   }
 
   input{
-    font-size:32px;
+    font-size:34px;
   }
 
   button{
-    width:260px;
-    height:80px;
-    font-size:30px;
+    width:300px;
+    height:95px;
+    font-size:34px;
   }
 
   #result{
@@ -114,7 +116,7 @@ placeholder="ここに認識結果が表示されます">
 
 <button onclick="start()">開始</button>
 
-<button onclick="stop()">終了</button>
+<button onclick="stop()">判定</button>
 
 <button onclick="nextQuestion()">次の問題</button>
 
