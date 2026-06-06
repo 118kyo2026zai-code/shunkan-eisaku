@@ -114,11 +114,11 @@ placeholder="ここに認識結果が表示されます">
 
 <div class="button-area">
 
-<button onclick="start()">最初にマイクを許可する</button>
+<button onclick="start()">開始</button>
 
-<button onclick="stop()">①英語を答えたら判定</button>
+<button onclick="stop()">判定</button>
 
-<button onclick="nextQuestion()">②次の問題</button>
+<button onclick="nextQuestion()">次の問題</button>
 
 </div>
 
@@ -238,9 +238,8 @@ placeholder="ここに認識結果が表示されます">
 {unit:"疑問詞③", ja:"授業はいつ始まりますか。9時です。", en:"When does the class begin? At nine."},
 {unit:"疑問詞③", ja:"箱の中に何がありますか。", en:"What is in the box?"},
 {unit:"疑問詞③", ja:"誰が速く走りますか。", en:"Who runs fast?"}
-
-
-];
+,
+  ];
 
 let current = 0;
 let speech = null;
@@ -278,11 +277,7 @@ if(SpeechRecognition){
       latestText;
 
   };
-speech.onerror = function(event){
 
-  alert("音声認識エラー：" + event.error);
-
-};
 }else{
 
   alert("このブラウザは音声認識に対応していません");
@@ -310,22 +305,13 @@ function start(){
 
   latestText = "";
 
-  if(!speech){
-
-    alert("音声認識に対応していません");
-
-    return;
-  }
-
   try{
 
     speech.start();
 
-    alert("音声認識を開始しました");
-
   }catch(error){
 
-    alert("エラー：" + error);
+    console.log(error);
 
   }
 
