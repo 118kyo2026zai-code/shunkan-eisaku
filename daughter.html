@@ -1,1 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>瞬間英作文音声練習ドリル</title>
 
+<style>
+
+body{
+  font-family:sans-serif;
+  text-align:center;
+
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  padding:20px;
+  box-sizing:border-box;
+}
+
+#ja{
+  font-size:52px;
+  font-weight:bold;
+  margin-bottom:30px;
+  line-height:1.4;
+}
+
+#answer{
+  margin-top:15px;
+  font-size:32px;
+  color:blue;
+}
+
+input{
+  width:90%;
+  max-width:700px;
+
+  font-size:30px;
+
+  padding:15px;
+
+  display:block;
+  margin:20px auto;
+
+  text-align:center;
+}
+
+.button-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap:25px;
+
+  margin-top:20px;
+}
+
+button{
+
+  width:280px;
+
+  height:90px;
+
+  font-size:32px;
+
+  border-radius:15px;
+
+  cursor:pointer;
+}
+
+#result{
+  margin-top:25px;
+  font-size:28px;
+  white-space:pre-line;
+}
+
+@media (max-width:600px){
+
+  #ja{
+    font-size:68px;
+  }
+
+  input{
+    font-size:34px;
+  }
+
+  button{
+    width:300px;
+    height:95px;
+    font-size:34px;
+  }
+
+  #result{
+    font-size:30px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h2 id="ja"></h2>
+
+<div id="answer"></div>
+
+<input
+id="voiceText"
+type="text"
+placeholder="ここに認識結果が表示されます">
+
+<div class="button-area">
+
+<button onclick="start()">開始</button>
+
+<button onclick="stop()">判定</button>
+
+<button onclick="nextQuestion()">次の問題</button>
+
+</div>
+
+<div id="result"></div>
+
+<script>
+
+
+  const data = [
+
+/* 分詞（感情） */
+
+{unit:"分詞（感情）",ja:"あのレストランは本当にガッカリするものだった。",en:"That restaurant was really disappointing."},
+
+{unit:"分詞（感情）",ja:"あれは驚くべきパーティーだ。",en:"That is the surprising party."},
+
+{unit:"分詞（感情）",ja:"このサッカーゲームはワクワクするものです。",en:"This soccer game is exciting."},
+
+{unit:"分詞（感情）",ja:"このドラマはとても感動的でした。",en:"This drama was so moving."},
+
+{unit:"分詞（感情）",ja:"この映画はなんとワクワクするものだ。",en:"How exciting this movie is!"},
+
+{unit:"分詞（感情）",ja:"これは面白い話です。",en:"This is an interesting story."},
+
+{unit:"分詞（感情）",ja:"そのお風呂はくつろげるものでした。",en:"The bath was relaxing."},
+
+{unit:"分詞（感情）",ja:"彼の話はなんて面白かったことよ。",en:"How interesting his story was!"},
+
+{unit:"分詞（感情）",ja:"彼の講義はとても退屈だと私は思った。",en:"I thought his lecture was very boring."},
+
+{unit:"分詞（感情）",ja:"彼はオーストラリアの文化に興味がある。",en:"He is interested in the culture of Australia."},
+
+{unit:"分詞（感情）",ja:"彼は理科に興味がある。",en:"He is interested in science."},
+
+{unit:"分詞（感情）",ja:"彼女はそのパーティーに驚いた。",en:"She was surprised at the party."},
+
+{unit:"分詞（感情）",ja:"私はそのニュースを聞いた時、驚きました。",en:"I was surprised when I heard the news."},
+
+{unit:"分詞（感情）",ja:"私はワクワクした。",en:"I was excited."},
+
+{unit:"分詞（感情）",ja:"私は家族からのEメールに驚いた。",en:"I was surprised at an email from my family."},
+
+/* to不定詞 */
+
+{unit:"to不定詞",ja:"英語を勉強することは楽しいです。",en:"To study English is fun."},
+
+{unit:"to不定詞",ja:"彼女の目標は試験に合格することです。",en:"Her goal is to pass the exam."},
+
+{unit:"to不定詞",ja:"私は野球をすることが好きです。",en:"I like to play baseball."},
+
+{unit:"to不定詞",ja:"ユミは先生になりたい。",en:"Yumi wants to be a teacher."},
+
+{unit:"to不定詞",ja:"雨が降り始めるでしょう。",en:"It will start to rain."},
+
+{unit:"to不定詞",ja:"私の夢は歌手になることです。",en:"My dream is to be a singer."},
+
+{unit:"to不定詞",ja:"雨が降り始めた。",en:"It began to rain."},
+
+{unit:"to不定詞",ja:"私は英語の先生になりたい。",en:"I want to be an English teacher."},
+
+{unit:"to不定詞",ja:"私はあなたにもう一度会うことを望みます。",en:"I hope to meet you again."},
+
+{unit:"to不定詞",ja:"私たちは今夜、英語を一生懸命勉強する必要がある。",en:"We need to study English hard tonight."},
+
+{unit:"to不定詞",ja:"彼は将来、科学者になりたい。",en:"He wants to be a scientist in the future."},
+
+{unit:"to不定詞",ja:"彼は走り始めた。",en:"He started to run."},
+
+{unit:"to不定詞",ja:"彼はすぐに家へ帰る必要がある。",en:"He needs to go home soon."},
+
+/* 従属接続詞 */
+
+{unit:"従属接続詞",ja:"もしあなたが一生懸命勉強したら、あなたは試験に合格するでしょう。",en:"If you study hard, you will pass the exam."},
+
+{unit:"従属接続詞",ja:"もしあなたに時間があるならば、私のところを訪れてください。",en:"If you have time, please visit me."},
+
+{unit:"従属接続詞",ja:"もし晴れたら、動物園へ行きましょう。",en:"Let's go to the zoo if it is sunny."},
+
+{unit:"従属接続詞",ja:"もし晴れたら、私は友達と一緒に買い物へ行くでしょう。",en:"If it is sunny, I will go shopping with my friends."},
+
+{unit:"従属接続詞",ja:"彼が勉強していた時、私は走っていました。",en:"When he was studying, I was running."},
+
+{unit:"従属接続詞",ja:"彼が勉強していた時、私は走っていました。",en:"I was running when he was studying."},
+
+{unit:"従属接続詞",ja:"私がバスに乗り遅れたので、私は学校へ遅刻しました。",en:"Because I missed the bus, I was late for school."},
+
+{unit:"従属接続詞",ja:"私が子供だった時、私は神戸に住んでいました。",en:"When I was a child, I lived in Kobe."},
+
+{unit:"従属接続詞",ja:"私が家に着いた時、私の母はテレビを見ていました。",en:"My mother was watching TV when I got home."},
+
+{unit:"従属接続詞",ja:"私が若かった時、私の父は私にいくつか助言をしてくれた。",en:"When I was young, my father gave me some advice."},
+
+{unit:"従属接続詞",ja:"私が起きた時、雨が降っていた。",en:"It was raining when I got up."},
+
+{unit:"従属接続詞",ja:"私は体調が悪いので、行くことができません。",en:"I can't go because I am sick."},
+
+{unit:"従属接続詞",ja:"私は十歳の時、大阪に住んでいました。",en:"I lived in Osaka when I was ten."},
+
+{unit:"従属接続詞",ja:"私は忙しかったので、行くことができませんでした。",en:"I couldn't go because I was busy."},
+
+{unit:"従属接続詞",ja:"私は昨夜たくさん宿題をしたのでとても眠いです。",en:"I am very sleepy because I did a lot of homework last night."}
+
+
+];
+
+let current = 0;
+let speech = null;
+let latestText = "";
+
+function normalize(text){
+
+  return text
+    .toLowerCase()
+    .replace(/[.,!?]/g,"")
+    .trim();
+
+}
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+
+  speech = new SpeechRecognition();
+
+  speech.lang = "en-US";
+
+  speech.continuous = true;
+
+  speech.interimResults = false;
+
+  speech.onresult = function(e){
+
+    latestText =
+      e.results[e.results.length - 1][0].transcript;
+
+    document.getElementById("voiceText").value =
+      latestText;
+
+  };
+
+}else{
+
+  alert("このブラウザは音声認識に対応していません");
+
+}
+
+function showQuestion(){
+
+  document.getElementById("ja").innerText =
+    data[current].ja;
+
+  document.getElementById("answer").innerText = "";
+
+  document.getElementById("result").innerText = "";
+
+  document.getElementById("voiceText").value = "";
+
+  latestText = "";
+
+}
+
+showQuestion();
+
+function start(){
+
+  latestText = "";
+
+  try{
+
+    speech.start();
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+function stop(){
+
+  if(speech){
+
+    speech.stop();
+
+  }
+
+  setTimeout(() => {
+
+    judge();
+
+  },100);
+
+}
+
+function judge(){
+
+  const user =
+    normalize(latestText);
+
+  const correct =
+    normalize(data[current].en);
+
+  speechSynthesis.cancel();
+
+  if(user === correct){
+
+    document.getElementById("result").innerText =
+      "✅ Correct!";
+
+    document.getElementById("answer").innerText =
+      data[current].en;
+
+    const uttr =
+      new SpeechSynthesisUtterance(
+        "Correct. " + data[current].en
+      );
+
+    uttr.lang = "en-US";
+    uttr.rate = 1.0;
+
+    speechSynthesis.speak(uttr);
+
+  }
+
+  else{
+
+    document.getElementById("result").innerText =
+      "❌ 間違っています\n\nあなた： "
+      + latestText +
+      "\n\n正解： "
+      + data[current].en;
+
+    document.getElementById("answer").innerText =
+      data[current].en;
+
+    const uttr =
+      new SpeechSynthesisUtterance(
+        "Incorrect. Try again. "
+        + data[current].en
+      );
+
+    uttr.lang = "en-US";
+    uttr.rate = 1.0;
+
+    speechSynthesis.speak(uttr);
+
+  }
+
+}
+
+function nextQuestion(){
+
+  speechSynthesis.cancel();
+
+  current++;
+
+  if(current >= data.length){
+
+    current = 0;
+
+  }
+
+  showQuestion();
+
+  setTimeout(() => {
+
+    start();
+
+  },300);
+
+}
+
+</script>
+
+</body>
+</html>
