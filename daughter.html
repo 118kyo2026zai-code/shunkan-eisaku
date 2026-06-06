@@ -278,7 +278,11 @@ if(SpeechRecognition){
       latestText;
 
   };
+speech.onerror = function(event){
 
+  alert("音声認識エラー：" + event.error);
+
+};
 }else{
 
   alert("このブラウザは音声認識に対応していません");
