@@ -306,13 +306,22 @@ function start(){
 
   latestText = "";
 
+  if(!speech){
+
+    alert("音声認識に対応していません");
+
+    return;
+  }
+
   try{
 
     speech.start();
 
+    alert("音声認識を開始しました");
+
   }catch(error){
 
-    console.log(error);
+    alert("エラー：" + error);
 
   }
 
