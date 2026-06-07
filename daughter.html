@@ -309,7 +309,7 @@ placeholder="ここに認識結果が表示されます">
 ,
   ];
 
-let currentData = data;
+
 
 let current = 0;
 let currentData = data;  
@@ -454,8 +454,8 @@ function judge(){
     currentData[current].en;
 
   speakAnswer(
-    "Incorrect. Try again. "
-    + currentData[current].en
+  currentData[current].en
+
   );
 
 }
