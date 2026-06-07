@@ -56,7 +56,7 @@ body{
 }
 
 #answer{
-  margin-top:30px;
+  margin-top:10px;
   font-size:40px;
   color:blue;
   line-height:1.4;
@@ -418,21 +418,19 @@ function judge(){
 
   else{
 
-    document.getElementById("result").innerText =
-      "❌ 間違っています\n\nあなた： "
-      + latestText +
-      "\n\n正解： "
-      + data[current].en;
+  document.getElementById("result").innerText =
+    "❌ 間違っています";
 
-    document.getElementById("answer").innerText =
-      data[current].en;
+  document.getElementById("answer").innerText =
+    data[current].en;
 
-    speakAnswer(
-  "Incorrect. Try again. "
-  + data[current].en
-);
+  speakAnswer(
+    "Incorrect. Try again. "
+    + data[current].en
+  );
 
-  }
+}
+
 
 }
 
