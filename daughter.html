@@ -49,7 +49,15 @@ body{
   border-radius:15px;
 
 }
-  
+  #unitSelect{
+
+  font-size:28px;
+
+  padding:10px;
+
+  margin-bottom:20px;
+
+}
 #ja{
   font-size:45px;
   font-weight:bold;
@@ -108,7 +116,11 @@ button{
 }
 
 @media (max-width:600px){
+#unitSelect{
 
+  font-size:34px;
+
+}
   #ja{
     font-size:20px;
   }
@@ -146,7 +158,19 @@ button{
 </button>
 
 </div>
+<select id="unitSelect" onchange="changeUnit()">
 
+<option value="all">全部</option>
+
+<option value="分詞（感情）">分詞（感情）</option>
+
+<option value="to不定詞">to不定詞</option>
+
+<option value="従属接続詞">従属接続詞</option>
+
+<option value="疑問詞③">疑問詞③</option>
+
+</select>
 <h2 id="ja"></h2>
 <div id="result"></div>
 <div id="answer"></div>
@@ -285,7 +309,10 @@ placeholder="ここに認識結果が表示されます">
 ,
   ];
 
+let currentData = data;
+
 let current = 0;
+let currentData = data;  
 let speech = null;
 let latestText = "";
 
@@ -331,7 +358,7 @@ if(SpeechRecognition){
 function showQuestion(){
 
   document.getElementById("ja").innerText =
-    data[current].ja;
+    currentData[current].ja;
 
   document.getElementById("answer").innerText = "";
 
@@ -401,7 +428,7 @@ function judge(){
     normalize(latestText);
 
   const correct =
-    normalize(data[current].en);
+  normalize(currentData[current].en);
 
   speechSynthesis.cancel();
 
@@ -411,10 +438,10 @@ function judge(){
        "⭕ 正解！";
 
     document.getElementById("answer").innerText =
-      data[current].en;
+      currentData[current].en;
 
     speakAnswer(
-  data[current].en
+  currentData[current].en
 );
     }
 
@@ -424,11 +451,11 @@ function judge(){
     "❌ ちがいます";
 
   document.getElementById("answer").innerText =
-    data[current].en;
+    currentData[current].en;
 
   speakAnswer(
     "Incorrect. Try again. "
-    + data[current].en
+    + currentData[current].en
   );
 
 }
@@ -442,7 +469,7 @@ function nextQuestion(){
 
   current++;
 
-  if(current >= data.length){
+  if(current >= currentData.length){
 
     current = 0;
 
@@ -460,12 +487,36 @@ function nextQuestion(){
   function repeatAudio(){
 
   speakAnswer(
-    data[current].en
+    currentData[current].en
   );
 
 }
+  function changeUnit(){
 
-showQuestion();
+  const selected =
+    document.getElementById(
+      "unitSelect"
+    ).value;
+
+  if(selected === "all"){
+
+    currentData = data;
+
+  }else{
+
+    currentData =
+      data.filter(
+        q => q.unit === selected
+      );
+
+  }
+
+  current = 0;
+
+  showQuestion();
+
+}
+
 
 
 
