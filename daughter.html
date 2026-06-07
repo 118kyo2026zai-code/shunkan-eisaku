@@ -319,7 +319,7 @@ let current = 0;
 let currentData = data;  
 let speech = null;
 let latestText = "";
-
+let wrongQuestions = [];
 function normalize(text){
 
   return text
@@ -456,7 +456,13 @@ function judge(){
 
   document.getElementById("answer").innerText =
     currentData[current].en;
+if(!wrongQuestions.includes(currentData[current])){
 
+  wrongQuestions.push(
+    currentData[current]
+  );
+
+}
   speakAnswer(
   currentData[current].en
 
@@ -473,10 +479,33 @@ function nextQuestion(){
 
   current++;
 
-  if(current >= currentData.length){
+ if(current >= currentData.length){
+
+  if(wrongQuestions.length > 0){
+
+    currentData = [...wrongQuestions];
+
+    wrongQuestions = [];
 
     current = 0;
 
+    alert(
+      "復習スタート！\n間違えた問題をもう一度やります。"
+    );
+
+  }
+
+  else{
+
+    alert("🏆 クリア！");
+
+    currentData = data;
+
+    current = 0;
+
+  }
+
+}
   }
 
   showQuestion();
