@@ -20,6 +20,34 @@ body{
   box-sizing:border-box;
 }
 
+.top-area{
+
+  position:fixed;
+
+  top:10px;
+
+  left:10px;
+
+  z-index:1000;
+
+}
+
+#micButton{
+
+  width:180px;
+
+  height:70px;
+
+  font-size:24px;
+
+  background:#ffd966;
+
+  border:3px solid #cc9900;
+
+  border-radius:15px;
+
+}
+  
 #ja{
   font-size:52px;
   font-weight:bold;
@@ -28,9 +56,10 @@ body{
 }
 
 #answer{
-  margin-top:15px;
-  font-size:32px;
+  margin-top:150px;
+  font-size:40px;
   color:blue;
+  line-height:1.4;
 }
 
 input{
@@ -79,21 +108,25 @@ button{
 @media (max-width:600px){
 
   #ja{
-    font-size:68px;
+    font-size:80px;
+  }
+
+  #answer{
+    font-size:46px;
   }
 
   input{
-    font-size:34px;
+    font-size:38px;
   }
 
   button{
-    width:300px;
-    height:95px;
-    font-size:34px;
+    width:320px;
+    height:100px;
+    font-size:36px;
   }
 
   #result{
-    font-size:30px;
+    font-size:34px;
   }
 
 }
@@ -102,6 +135,16 @@ button{
 </head>
 
 <body>
+
+<body>
+
+<div class="top-area">
+
+<button id="micButton" onclick="start()">
+🎤 マイクを許可
+</button>
+
+</div>
 
 <h2 id="ja"></h2>
 
@@ -114,11 +157,11 @@ placeholder="ここに認識結果が表示されます">
 
 <div class="button-area">
 
-<button onclick="start()">開始</button>
-
 <button onclick="stop()">判定</button>
 
 <button onclick="nextQuestion()">次の問題</button>
+
+<button onclick="repeatAudio()">🔊 もう一回聞く</button>
 
 </div>
 
@@ -300,6 +343,20 @@ function showQuestion(){
 }
 
 showQuestion();
+  function speakAnswer(message){
+
+  speechSynthesis.cancel();
+
+  const uttr =
+    new SpeechSynthesisUtterance(message);
+
+  uttr.lang = "en-US";
+
+  uttr.rate = 1.0;
+
+  speechSynthesis.speak(uttr);
+
+}
 
 function start(){
 
@@ -308,6 +365,10 @@ function start(){
   try{
 
     speech.start();
+
+    document.getElementById(
+      "micButton"
+    ).style.display = "none";
 
   }catch(error){
 
@@ -351,17 +412,9 @@ function judge(){
     document.getElementById("answer").innerText =
       data[current].en;
 
-    const uttr =
-      new SpeechSynthesisUtterance(
-        "Correct. " + data[current].en
-      );
-
-    uttr.lang = "en-US";
-    uttr.rate = 1.0;
-
-    speechSynthesis.speak(uttr);
-
-  }
+    speakAnswer(
+  "Correct. " + data[current].en
+);
 
   else{
 
@@ -374,16 +427,10 @@ function judge(){
     document.getElementById("answer").innerText =
       data[current].en;
 
-    const uttr =
-      new SpeechSynthesisUtterance(
-        "Incorrect. Try again. "
-        + data[current].en
-      );
-
-    uttr.lang = "en-US";
-    uttr.rate = 1.0;
-
-    speechSynthesis.speak(uttr);
+    speakAnswer(
+  "Incorrect. Try again. "
+  + data[current].en
+);
 
   }
 
@@ -408,6 +455,13 @@ function nextQuestion(){
     start();
 
   },300);
+
+}
+  function repeatAudio(){
+
+  speakAnswer(
+    data[current].en
+  );
 
 }
 
