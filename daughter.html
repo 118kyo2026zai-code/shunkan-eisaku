@@ -406,20 +406,20 @@ function judge(){
   if(user === correct){
 
     document.getElementById("result").innerText =
-      "✅ Correct!";
+       "⭕ 正解！";
 
     document.getElementById("answer").innerText =
       data[current].en;
 
     speakAnswer(
-  "Correct. " + data[current].en
+  data[current].en
 );
     }
 
   else{
 
   document.getElementById("result").innerText =
-    "❌ 間違っています";
+    "❌ ちがいます";
 
   document.getElementById("answer").innerText =
     data[current].en;
