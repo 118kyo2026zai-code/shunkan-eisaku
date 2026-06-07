@@ -479,33 +479,34 @@ function nextQuestion(){
 
   current++;
 
- if(current >= currentData.length){
+  if(current >= currentData.length){
 
-  if(wrongQuestions.length > 0){
+    if(wrongQuestions.length > 0){
 
-    currentData = [...wrongQuestions];
+      currentData = [...wrongQuestions];
 
-    wrongQuestions = [];
+      wrongQuestions = [];
 
-    current = 0;
+      current = 0;
 
-    alert(
-      "復習スタート！\n間違えた問題をもう一度やります。"
-    );
+      alert(
+        "復習スタート！\n間違えた問題をもう一度やります。"
+      );
 
-  }
+    }
 
-  else{
+    else{
 
-    alert("🏆 クリア！");
+      alert("🏆 クリア！");
 
-    currentData = data;
+      current = 0;
 
-    current = 0;
+      showQuestion();
 
-  }
+      return;
 
-}
+    }
+
   }
 
   showQuestion();
