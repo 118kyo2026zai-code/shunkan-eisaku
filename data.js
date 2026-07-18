@@ -1,36 +1,43 @@
 const data = [
 
-/* 分詞（感情） */
+/* 肯定文第三文型 */
 
-{unit:"分詞（感情）",ja:"あのレストランは本当にガッカリするものだった。",en:"That restaurant was really disappointing."},
+{unit:"肯定文第三文型",ja:"僕は自転車が欲しい",en:"I want a bike."},
 
-{unit:"分詞（感情）",ja:"あれは驚くべきパーティーだ。",en:"That is the surprising party."},
+{unit:"肯定文第三文型",ja:"私は英語を教える",en:"I teach English."},
 
-{unit:"分詞（感情）",ja:"このサッカーゲームはワクワクするものです。",en:"This soccer game is exciting."},
+{unit:"肯定文第三文型",ja:"あなたは宿題をする",en:"You do your homework."},
 
-{unit:"分詞（感情）",ja:"このドラマはとても感動的でした。",en:"This drama was so moving."},
+{unit:"肯定文第三文型",ja:"私たちはあなたの友だちを助ける",en:"We help your friend."},
 
-{unit:"分詞（感情）",ja:"この映画はなんとワクワクするものだ。",en:"How exciting this movie is!"},
+{unit:"肯定文第三文型",ja:"私たちは英語を勉強する",en:"we study English."},
 
-{unit:"分詞（感情）",ja:"これは面白い話です。",en:"This is an interesting story."},
+{unit:"肯定文第三文型",ja:"あなたは顔を洗う",en:"You wash your face."},
 
-{unit:"分詞（感情）",ja:"そのお風呂はくつろげるものでした。",en:"The bath was relaxing."},
+{unit:"肯定文第三文型",ja:"私はあなたの名前を書く",en:"I write your name."},
 
-{unit:"分詞（感情）",ja:"彼の話はなんて面白かったことよ。",en:"How interesting his story was!"},
+{unit:"肯定文第三文型",ja:"僕はコンピューターを使う",en:"I use a computer."},
 
-{unit:"分詞（感情）",ja:"彼の講義はとても退屈だと私は思った。",en:"I thought his lecture was very boring."},
+{unit:"肯定文第三文型",ja:"僕は英語を話す",en:"I speak English."},
 
-{unit:"分詞（感情）",ja:"彼はオーストラリアの文化に興味がある。",en:"He is interested in the culture of Australia."},
+{unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook denner."},
 
-{unit:"分詞（感情）",ja:"彼は理科に興味がある。",en:"He is interested in science."},
+{unit:"肯定文第三文型",ja:"僕はダンスが好きです",en:"I like dance."},
 
-{unit:"分詞（感情）",ja:"彼女はそのパーティーに驚いた。",en:"She was surprised at the party."},
+{unit:"肯定文第三文型",ja:"あなたたちは寿司を作る",en:"You make sushi."},
 
-{unit:"分詞（感情）",ja:"私はそのニュースを聞いた時、驚きました。",en:"I was surprised when I heard the news."},
+{unit:"肯定文第三文型",ja:"僕たちは野球をする",en:"We play baseball."},
 
-{unit:"分詞（感情）",ja:"私はワクワクした。",en:"I was excited."},
+{unit:"肯定文第三文型",ja:"私はお茶を飲む",en:"I drink tea."},
 
-{unit:"分詞（感情）",ja:"私は家族からのEメールに驚いた。",en:"I was surprised at an email from my family."},
+{unit:"肯定文第三文型",ja:"私はそのドアを開ける",en:"I open the door."},
+
+{unit:"肯定文第三文型",ja:"君は朝食を食べる",en:"You eat breakfast."},
+
+{unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean yourroom."},
+
+{unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean yourroom."},
+
 
 /* to不定詞 */
 
