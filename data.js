@@ -34,71 +34,49 @@ const data = [
 
 {unit:"肯定文第三文型",ja:"君は朝食を食べる",en:"You eat breakfast."},
 
-{unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean yourroom."},
-
-{unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean yourroom."},
+{unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean your room."},
 
 
-/* to不定詞 */
 
-{unit:"to不定詞",ja:"英語を勉強することは楽しいです。",en:"To study English is fun."},
 
-{unit:"to不定詞",ja:"彼女の目標は試験に合格することです。",en:"Her goal is to pass the exam."},
+/* 疑問文第三文型 */
 
-{unit:"to不定詞",ja:"私は野球をすることが好きです。",en:"I like to play baseball."},
+{unit:"疑問文第三文型",ja:"あなたは自転車が欲しいですか？",en:"Do you want a bike?"},
 
-{unit:"to不定詞",ja:"ユミは先生になりたい。",en:"Yumi wants to be a teacher."},
+{unit:"疑問文第三文型",ja:"あなたは英語を教えますか？",en:"Do you teach English?"},
 
-{unit:"to不定詞",ja:"雨が降り始めるでしょう。",en:"It will start to rain."},
+{unit:"疑問文第三文型",ja:"あなたは宿題をしますか？",en:"Do yo do homework?"},
 
-{unit:"to不定詞",ja:"私の夢は歌手になることです。",en:"My dream is to be a singer."},
+{unit:"疑問文第三文型",ja:"私たちはあなたの友だちを助けますか？",en:"Do we help your friend?"},
 
-{unit:"to不定詞",ja:"雨が降り始めた。",en:"It began to rain."},
+{unit:"疑問文第三文型",ja:"あなたは算数を勉強しますか",en:"Do you study math?"},
 
-{unit:"to不定詞",ja:"私は英語の先生になりたい。",en:"I want to be an English teacher."},
+{unit:"疑問文第三文型",ja:"あなたは顔を洗いますか",en:"Do you wash your face?"},
 
-{unit:"to不定詞",ja:"私はあなたにもう一度会うことを望みます。",en:"I hope to meet you again."},
+{unit:"疑問文第三文型",ja:"私はあなたの名前を書きますか？",en:"Do I write your name?"},
 
-{unit:"to不定詞",ja:"私たちは今夜、英語を一生懸命勉強する必要がある。",en:"We need to study English hard tonight."},
+{unit:"疑問文第三文型",ja:"あなたはコンピュータを使いますか？",en:"Do you use a computer?"},
 
-{unit:"to不定詞",ja:"彼は将来、科学者になりたい。",en:"He wants to be a scientist in the future."},
+{unit:"疑問文第三文型",ja:"あなたは英語を話しますか？",en:"Do you speak English?"},
 
-{unit:"to不定詞",ja:"彼は走り始めた。",en:"He started to run."},
+{unit:"疑問文第三文型",ja:"あなたたちは夕食を作りますか？",en:"Do you cook dinner?"},
 
-{unit:"to不定詞",ja:"彼はすぐに家へ帰る必要がある。",en:"He needs to go home soon."},
+{unit:"疑問文第三文型",ja:"君はダンスが好きですか？",en:"Do you like dance?"},
 
-/* 従属接続詞 */
+{unit:"疑問文第三文型",ja:"あなたは寿司を作りますか",en:"Do you make sushi?"},
 
-{unit:"従属接続詞",ja:"もしあなたが一生懸命勉強したら、あなたは試験に合格するでしょう。",en:"If you study hard, you will pass the exam."},
+{unit:"疑問文第三文型",ja:"私たちは野球をしますか",en:"Do we play baseball?"},
 
-{unit:"従属接続詞",ja:"もしあなたに時間があるならば、私のところを訪れてください。",en:"If you have time, please visit me."},
+{unit:"疑問文第三文型",ja:"あなたはお茶を飲みますか",en:"Do you drink tea?"},
 
-{unit:"従属接続詞",ja:"もし晴れたら、動物園へ行きましょう。",en:"Let's go to the zoo if it is sunny."},
+{unit:"疑問文第三文型",ja:"私はそのドアを開けますか",en:"Do we open the door?"},    
 
-{unit:"従属接続詞",ja:"もし晴れたら、私は友達と一緒に買い物へ行くでしょう。",en:"If it is sunny, I will go shopping with my friends."},
+{unit:"疑問文第三文型",ja:"あなたは朝食を食べますか",en:"Do you eat breakfast?"}, 
 
-{unit:"従属接続詞",ja:"彼が勉強していた時、私は走っていました。",en:"When he was studying, I was running."},
+{unit:"疑問文第三文型",ja:"あなたはあなたの部屋を掃除しますか",en:"Do you clean your room?"}, 
 
-{unit:"従属接続詞",ja:"彼が勉強していた時、私は走っていました。",en:"I was running when he was studying."},
 
-{unit:"従属接続詞",ja:"私がバスに乗り遅れたので、私は学校へ遅刻しました。",en:"Because I missed the bus, I was late for school."},
 
-{unit:"従属接続詞",ja:"私が子供だった時、私は神戸に住んでいました。",en:"When I was a child, I lived in Kobe."},
-
-{unit:"従属接続詞",ja:"私が家に着いた時、私の母はテレビを見ていました。",en:"My mother was watching TV when I got home."},
-
-{unit:"従属接続詞",ja:"私が若かった時、私の父は私にいくつか助言をしてくれた。",en:"When I was young, my father gave me some advice."},
-
-{unit:"従属接続詞",ja:"私が起きた時、雨が降っていた。",en:"It was raining when I got up."},
-
-{unit:"従属接続詞",ja:"私は体調が悪いので、行くことができません。",en:"I can't go because I am sick."},
-
-{unit:"従属接続詞",ja:"私は十歳の時、大阪に住んでいました。",en:"I lived in Osaka when I was ten."},
-
-{unit:"従属接続詞",ja:"私は忙しかったので、行くことができませんでした。",en:"I couldn't go because I was busy."},
-
-{unit:"従属接続詞",ja:"私は昨夜たくさん宿題をしたのでとても眠いです。",en:"I am very sleepy because I did a lot of homework last night."}
-,
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
 {unit:"疑問詞③", ja:"あなたは何歳ですか。12才です。", en:"How old are you? I'm twelve."},
