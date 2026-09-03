@@ -36,7 +36,15 @@ const data = [
 
 {unit:"肯定文第三文型",ja:"あなたはあなたの部屋を掃除する",en:"You clean your room."},
 
-
+{unit:"肯定文第三文型",ja:"私はあなたの鉛筆を持ち上げる",en:"I pick up your pencil."},
+    
+{unit:"肯定文第三文型",ja:"私は私の鉛筆を置く",en:"I put down my pencil."},
+    
+{unit:"肯定文第三文型",ja:"私は京都を訪れる",en:"I visit Kyoto."},
+    
+{unit:"肯定文第三文型",ja:"あなたはあなたの滞在を楽しみます",en:"You enjoy your stay."},
+    
+{unit:"肯定文第三文型",ja:"私は一冊の本を読みます",en:"I read a book."},
 
 
 /* 疑問文第三文型 */
@@ -75,7 +83,56 @@ const data = [
 
 {unit:"疑問文第三文型",ja:"あなたはあなたの部屋を掃除しますか",en:"Do you clean your room?"}, 
 
+{unit:"疑問文第三文型",ja:"あなたはあなたの鉛筆を持ち上げますか？",en:"Do you pick up your pencil?"},
 
+{unit:"疑問文第三文型",ja:"あなたはあなたの鉛筆を置きますか？",en:"Do you put down your pencil?"},
+
+{unit:"疑問文第三文型",ja:"あなたは京都を訪れますか？",en:"Do you visit Kyoto?"},
+
+{unit:"疑問文第三文型",ja:"あなたはあなたの滞在を楽しみますか？",en:"Do you enjoy your stay?"},
+
+{unit:"疑問文第三文型",ja:"あなたは本を一冊読みますか？",en:"Do you read a book?"},
+
+
+    /* 命令文第三文型 */
+
+{unit:"命令文第三文型",ja:"宿題をしなさい",en:"Do your homework."},
+
+{unit:"命令文第三文型",ja:"あなたの友だちを助けなさい",en:"Help your friend."},
+
+{unit:"命令文第三文型",ja:"英語を勉強しなさい",en:"Study English."},
+
+{unit:"命令文第三文型",ja:"顔を洗いなさい",en:"Wash your face."},
+
+{unit:"命令文第三文型",ja:"あなたの名前を書きなさい",en:"Write your name."},
+
+{unit:"命令文第三文型",ja:"コンピューターを使いなさい",en:"Use a computer."},
+
+{unit:"命令文第三文型",ja:"英語を話しなさい",en:"Speak English."},
+
+{unit:"命令文第三文型",ja:"夕食を作りなさい",en:"Cook dinner."},
+
+{unit:"命令文第三文型",ja:"寿司を作りなさい",en:"Make sushi."},
+
+{unit:"命令文第三文型",ja:"野球をしなさい",en:"Play baseball."},
+
+{unit:"命令文第三文型",ja:"お茶を飲みなさい",en:"Drink tea."},
+
+{unit:"命令文第三文型",ja:"そのドアを開けなさい",en:"Open the door."},
+
+{unit:"命令文第三文型",ja:"朝食を食べなさい",en:"Eat breakfast."},
+
+{unit:"命令文第三文型",ja:"あなたの部屋を掃除しなさい",en:"Clean your room."},
+
+{unit:"命令文第三文型",ja:"あなたの鉛筆を持ち上げなさい",en:"Pick up your pencil."},
+
+{unit:"命令文第三文型",ja:"あなたの鉛筆を置きなさい",en:"Put down your pencil."},
+
+{unit:"命令文第三文型",ja:"京都を訪れなさい",en:"Visit Kyoto."},
+
+{unit:"命令文第三文型",ja:"あなたの滞在を楽しみなさい",en:"Enjoy your stay."},
+
+{unit:"命令文第三文型",ja:"本を一冊読みなさい",en:"Read a book."},
 
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
