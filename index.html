@@ -168,7 +168,7 @@ button{
 </div>
 
 
-<select id="unitSelect" onchange="changeUnit()">
+<select id="unitSelect" onchange="changeUnit">
 
 <option value="all">全部</option>
 
@@ -558,20 +558,20 @@ function start(){
 
 function stop(){
 
+  /*
+    ここで自動再スタートを止める
+  */
+
   shouldListen = false;
 
   isJudging = true;
 
-  /*
-    音声認識をすぐ終了して、
-    正解音声をすぐ再生できるようにする
-  */
 
   if(speech){
 
     try{
 
-      speech.abort();
+      speech.stop();
 
     }catch(error){
 
@@ -581,9 +581,15 @@ function stop(){
 
   }
 
-  judge();
+
+  setTimeout(function(){
+
+    judge();
+
+  },100);
 
 }
+
 
 
 function judge(){
