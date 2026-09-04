@@ -419,83 +419,6 @@ function showQuestion(){
 
 
 /*
-  音声合成をあらかじめ起こしておく
-  （ブラウザが音声エンジンを休ませた場合の対策）
-*/
-
-function warmUpSpeech(){
-
-  const synth = window.speechSynthesis;
-
-  if(!synth){
-    return;
-  }
-
-
-  /*
-    利用可能な音声一覧を取得
-  */
-
-  synth.getVoices();
-
-
-  /*
-    音声エンジンを再開
-  */
-
-  synth.resume();
-
-
-  /*
-    ごく短い無音に近い読み上げを行い、
-    音声エンジンを起こしておく
-  */
-
-  try{
-
-    const warmUtterance =
-      new SpeechSynthesisUtterance(".");
-
-    warmUtterance.lang = "en-US";
-
-    warmUtterance.rate = 10;
-
-    warmUtterance.volume = 0;
-
-    synth.speak(warmUtterance);
-
-  }catch(error){
-
-    console.log(
-      "音声ウォームアップエラー:",
-      error
-    );
-
-  }
-
-}
-
-
-
-/*
-  音声合成の準備ができたときにも
-  音声エンジンを起こす
-*/
-
-if(window.speechSynthesis){
-
-  window.speechSynthesis.onvoiceschanged =
-    function(){
-
-      warmUpSpeech();
-
-    };
-
-}
-
-
-
-/*
   正解英文を読み上げる
 */
 
@@ -504,30 +427,12 @@ function speakAnswer(message){
   const synth =
     window.speechSynthesis;
 
-  if(!synth){
-    return;
-  }
-
-
   const uttr =
     new SpeechSynthesisUtterance(message);
 
   uttr.lang = "en-US";
 
   uttr.rate = 1.0;
-
-
-  /*
-    音声エンジンが休止状態なら
-    再開する
-  */
-
-  synth.resume();
-
-
-  /*
-    実際の読み上げ
-  */
 
   synth.speak(uttr);
 
@@ -630,13 +535,6 @@ function start(){
   document.getElementById(
     "result"
   ).innerText = "";
-
-
-  /*
-    音声エンジンも起こしておく
-  */
-
-  warmUpSpeech();
 
 
   startRecognition();
@@ -850,13 +748,6 @@ function nextQuestion(){
 
 
   /*
-    次の問題の音声エンジンを起こす
-  */
-
-  warmUpSpeech();
-
-
-  /*
     次の問題のマイクを開始
   */
 
@@ -880,26 +771,9 @@ function nextQuestion(){
 
 function repeatAudio(){
 
-  /*
-    音声エンジンを起こしてから
-    読み上げる
-  */
-
-  warmUpSpeech();
-
-
-  /*
-    少し待ってから読み上げる
-    （ウォームアップ音声と重ならないようにする）
-  */
-
-  setTimeout(function(){
-
-    speakAnswer(
-      currentData[current].en
-    );
-
-  },100);
+  speakAnswer(
+    currentData[current].en
+  );
 
 }
 
@@ -967,13 +841,6 @@ function changeUnit(){
 
 
   /*
-    音声エンジンを起こしておく
-  */
-
-  warmUpSpeech();
-
-
-  /*
     マイクボタンを再表示
   */
 
@@ -986,39 +853,10 @@ function changeUnit(){
 
 
 /*
-  最初の問題を表示したあと、
-  音声エンジンを一度起こしておく
+  最初の問題を表示
 */
 
 showQuestion();
-
-warmUpSpeech();
-
-
-
-/*
-  別のタブ・アプリなどから戻ってきたとき
-  音声エンジンを起こす
-*/
-
-document.addEventListener(
-  "visibilitychange",
-  function(){
-
-    if(
-      document.visibilityState === "visible"
-    ){
-
-      console.log(
-        "アプリに戻ってきました。音声エンジンを起こします。"
-      );
-
-      warmUpSpeech();
-
-    }
-
-  }
-);
 
 </script>
 
