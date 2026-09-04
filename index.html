@@ -428,8 +428,6 @@ showQuestion();
 
 function speakAnswer(message){
 
-  speechSynthesis.cancel();
-
   const uttr =
     new SpeechSynthesisUtterance(message);
 
@@ -605,9 +603,6 @@ function judge(){
 
   const correct =
     normalize(currentData[current].en);
-
-
-  speechSynthesis.cancel();
 
 
   if(user === correct){
