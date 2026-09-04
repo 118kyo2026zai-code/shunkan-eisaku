@@ -460,6 +460,8 @@ showQuestion();
 
 function speakAnswer(message){
 
+  const synth = window.speechSynthesis;
+
   const uttr =
     new SpeechSynthesisUtterance(message);
 
@@ -467,7 +469,13 @@ function speakAnswer(message){
 
   uttr.rate = 1.0;
 
-  speechSynthesis.speak(uttr);
+  synth.resume();
+
+  setTimeout(function(){
+
+    synth.speak(uttr);
+
+  }, 50);
 
 }
 
