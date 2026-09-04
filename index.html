@@ -23,45 +23,27 @@ body{
 }
 
 .top-area{
-
   position:fixed;
-
   top:10px;
-
   left:10px;
-
   z-index:1000;
-
 }
 
 #micButton{
-
   width:200px;
-
   height:70px;
-
   font-size:24px;
-
   background:#ffd966;
-
   border:3px solid #cc9900;
-
   border-radius:15px;
-
 }
 
 #unitSelect{
-
   width:220px;
-
   font-size:24px;
-
   padding:8px;
-
   display:block;
-
   margin:0 auto 15px auto;
-
 }
 
 #ja{
@@ -81,14 +63,10 @@ body{
 input{
   width:90%;
   max-width:700px;
-
   font-size:30px;
-
   padding:15px;
-
   display:block;
   margin:20px auto;
-
   text-align:center;
 }
 
@@ -96,22 +74,15 @@ input{
   display:flex;
   flex-direction:column;
   align-items:center;
-
   gap:25px;
-
   margin-top:20px;
 }
 
 button{
-
   width:280px;
-
   height:90px;
-
   font-size:32px;
-
   border-radius:15px;
-
   cursor:pointer;
 }
 
@@ -124,9 +95,7 @@ button{
 @media (max-width:600px){
 
   #unitSelect{
-
     font-size:34px;
-
   }
 
   #ja{
@@ -155,7 +124,6 @@ button{
 
 </style>
 </head>
-
 
 <body>
 
@@ -189,7 +157,6 @@ button{
 
 <div id="answer"></div>
 
-
 <input
 id="voiceText"
 type="text"
@@ -203,17 +170,15 @@ placeholder="ここに認識結果が表示されます"
 
 <button onclick="nextQuestion()">次の問題</button>
 
-<button onclick="repeatAudio()"> もう一回聞く</button>
+<button onclick="repeatAudio()">もう一回聞く</button>
 
 </div>
 
 
-
-
 <script src="data.js"></script>
 
-<script>
 
+<script>
 
 let current = 0;
 
@@ -272,6 +237,7 @@ if(SpeechRecognition){
   speech.interimResults = false;
 
 
+
   /*
     音声認識スタート
   */
@@ -289,6 +255,7 @@ if(SpeechRecognition){
   };
 
 
+
   /*
     音声を認識したとき
   */
@@ -298,10 +265,12 @@ if(SpeechRecognition){
     latestText =
       e.results[e.results.length - 1][0].transcript;
 
-    document.getElementById("voiceText").value =
-      latestText;
+    document.getElementById(
+      "voiceText"
+    ).value = latestText;
 
   };
+
 
 
   /*
@@ -352,6 +321,7 @@ if(SpeechRecognition){
   };
 
 
+
   /*
     音声認識エラー
   */
@@ -362,7 +332,6 @@ if(SpeechRecognition){
       "音声認識エラー:",
       event.error
     );
-
 
     isStarting = false;
 
@@ -394,13 +363,11 @@ if(SpeechRecognition){
         "micButton"
       ).style.display = "block";
 
-
       document.getElementById(
         "result"
       ).innerText =
         "マイクが使えません。\n" +
         "スマホの設定でChromeのマイクを「許可」にしてください。";
-
 
       return;
 
@@ -421,6 +388,7 @@ if(SpeechRecognition){
     }
 
   };
+
 
 
 }else{
@@ -450,7 +418,80 @@ function showQuestion(){
 
 
 
-showQuestion();
+/*
+  音声合成をあらかじめ起こしておく
+  （ブラウザが音声エンジンを休ませた場合の対策）
+*/
+
+function warmUpSpeech(){
+
+  const synth = window.speechSynthesis;
+
+  if(!synth){
+    return;
+  }
+
+
+  /*
+    利用可能な音声一覧を取得
+  */
+
+  synth.getVoices();
+
+
+  /*
+    音声エンジンを再開
+  */
+
+  synth.resume();
+
+
+  /*
+    ごく短い無音に近い読み上げを行い、
+    音声エンジンを起こしておく
+  */
+
+  try{
+
+    const warmUtterance =
+      new SpeechSynthesisUtterance(".");
+
+    warmUtterance.lang = "en-US";
+
+    warmUtterance.rate = 10;
+
+    warmUtterance.volume = 0;
+
+    synth.speak(warmUtterance);
+
+  }catch(error){
+
+    console.log(
+      "音声ウォームアップエラー:",
+      error
+    );
+
+  }
+
+}
+
+
+
+/*
+  音声合成の準備ができたときにも
+  音声エンジンを起こす
+*/
+
+if(window.speechSynthesis){
+
+  window.speechSynthesis.onvoiceschanged =
+    function(){
+
+      warmUpSpeech();
+
+    };
+
+}
 
 
 
@@ -460,7 +501,13 @@ showQuestion();
 
 function speakAnswer(message){
 
-  const synth = window.speechSynthesis;
+  const synth =
+    window.speechSynthesis;
+
+  if(!synth){
+    return;
+  }
+
 
   const uttr =
     new SpeechSynthesisUtterance(message);
@@ -469,13 +516,20 @@ function speakAnswer(message){
 
   uttr.rate = 1.0;
 
+
+  /*
+    音声エンジンが休止状態なら
+    再開する
+  */
+
   synth.resume();
 
-  setTimeout(function(){
 
-    synth.speak(uttr);
+  /*
+    実際の読み上げ
+  */
 
-  }, 50);
+  synth.speak(uttr);
 
 }
 
@@ -488,30 +542,19 @@ function speakAnswer(message){
 function startRecognition(){
 
   if(!speech){
-
     return;
-
   }
-
 
   if(!shouldListen){
-
     return;
-
   }
-
 
   if(isJudging){
-
     return;
-
   }
 
-
   if(isStarting){
-
     return;
-
   }
 
 
@@ -521,7 +564,6 @@ function startRecognition(){
   try{
 
     speech.start();
-
 
   }catch(error){
 
@@ -564,9 +606,7 @@ function startRecognition(){
 function start(){
 
   if(!speech){
-
     return;
-
   }
 
 
@@ -590,6 +630,13 @@ function start(){
   document.getElementById(
     "result"
   ).innerText = "";
+
+
+  /*
+    音声エンジンも起こしておく
+  */
+
+  warmUpSpeech();
 
 
   startRecognition();
@@ -660,7 +707,6 @@ function judge(){
     ).innerText =
       "◎ 正解！";
 
-
     document.getElementById(
       "answer"
     ).innerText =
@@ -679,7 +725,6 @@ function judge(){
       "result"
     ).innerText =
       "❌ ちがいます";
-
 
     document.getElementById(
       "answer"
@@ -777,7 +822,7 @@ function nextQuestion(){
 
     else{
 
-      alert(" クリア！");
+      alert("クリア！");
 
       current = 0;
 
@@ -805,6 +850,13 @@ function nextQuestion(){
 
 
   /*
+    次の問題の音声エンジンを起こす
+  */
+
+  warmUpSpeech();
+
+
+  /*
     次の問題のマイクを開始
   */
 
@@ -822,15 +874,40 @@ function nextQuestion(){
 
 
 
+/*
+  「もう一回聞く」
+*/
+
 function repeatAudio(){
 
-  speakAnswer(
-    currentData[current].en
-  );
+  /*
+    音声エンジンを起こしてから
+    読み上げる
+  */
+
+  warmUpSpeech();
+
+
+  /*
+    少し待ってから読み上げる
+    （ウォームアップ音声と重ならないようにする）
+  */
+
+  setTimeout(function(){
+
+    speakAnswer(
+      currentData[current].en
+    );
+
+  },100);
 
 }
 
 
+
+/*
+  問題を切り替えたとき
+*/
 
 function changeUnit(){
 
@@ -890,6 +967,13 @@ function changeUnit(){
 
 
   /*
+    音声エンジンを起こしておく
+  */
+
+  warmUpSpeech();
+
+
+  /*
     マイクボタンを再表示
   */
 
@@ -899,6 +983,42 @@ function changeUnit(){
 
 }
 
+
+
+/*
+  最初の問題を表示したあと、
+  音声エンジンを一度起こしておく
+*/
+
+showQuestion();
+
+warmUpSpeech();
+
+
+
+/*
+  別のタブ・アプリなどから戻ってきたとき
+  音声エンジンを起こす
+*/
+
+document.addEventListener(
+  "visibilitychange",
+  function(){
+
+    if(
+      document.visibilityState === "visible"
+    ){
+
+      console.log(
+        "アプリに戻ってきました。音声エンジンを起こします。"
+      );
+
+      warmUpSpeech();
+
+    }
+
+  }
+);
 
 </script>
 
