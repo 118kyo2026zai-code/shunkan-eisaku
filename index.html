@@ -238,6 +238,11 @@ let isJudging = false;
 let isStarting = false;
 
 
+// 判定待ちかどうか
+// 音声認識の onend が発生したら判定する
+let judgePending = false;
+
+
 
 function normalize(text){
 
@@ -268,19 +273,26 @@ if(SpeechRecognition){
 
 
   /*
-    音声を認識したとき
+    音声認識スタート
   */
 
   speech.onstart = function(){
 
-  console.log("音声認識スタート");
+    console.log("音声認識スタート");
 
-  document.getElementById(
-    "micButton"
-  ).style.display = "none";
+    isStarting = false;
 
-};
-  
+    document.getElementById(
+      "micButton"
+    ).style.display = "none";
+
+  };
+
+
+  /*
+    音声を認識したとき
+  */
+
   speech.onresult = function(e){
 
     latestText =
@@ -298,11 +310,31 @@ if(SpeechRecognition){
 
   speech.onend = function(){
 
+    console.log("音声認識終了");
+
     isStarting = false;
 
 
     /*
-      「判定」などで意図的に止めたのではなく、
+      「判定」ボタンが押されていて、
+      判定待ちなら、
+      音声認識が完全に終了したこのタイミングで
+      judge()を実行する。
+    */
+
+    if(judgePending){
+
+      judgePending = false;
+
+      judge();
+
+      return;
+
+    }
+
+
+    /*
+      「判定」ではなく、
       まだ問題に答えている途中なら
       自動的にもう一度聞き始める。
     */
@@ -336,12 +368,8 @@ if(SpeechRecognition){
 
 
     /*
-      「no-speech」は、
-      子どもが考えていて何も話さなかった場合などに
-      起こることがあります。
-
-      この場合はエラー表示をせず、
-      onendで自動的に再スタートします。
+      no-speechの場合
+      onendで判定または再スタートする。
     */
 
     if(event.error === "no-speech"){
@@ -425,6 +453,10 @@ function showQuestion(){
 showQuestion();
 
 
+
+/*
+  正解英文を読み上げる
+*/
 
 function speakAnswer(message){
 
@@ -538,6 +570,8 @@ function start(){
 
   isJudging = false;
 
+  judgePending = false;
+
   latestText = "";
 
 
@@ -571,6 +605,15 @@ function stop(){
   isJudging = true;
 
 
+  /*
+    判定待ちにする。
+    実際のjudge()は、
+    音声認識のonendで実行する。
+  */
+
+  judgePending = true;
+
+
   if(speech){
 
     try{
@@ -585,16 +628,13 @@ function stop(){
 
   }
 
-
-  setTimeout(function(){
-
-    judge();
-
-  },100);
-
 }
 
 
+
+/*
+  実際の判定
+*/
 
 function judge(){
 
@@ -668,7 +708,19 @@ function judge(){
 
 function nextQuestion(){
 
+  /*
+    前の問題の読み上げが残っていた場合は
+    ここで停止する。
+  */
+
   speechSynthesis.cancel();
+
+
+  /*
+    判定待ちを解除
+  */
+
+  judgePending = false;
 
 
   /*
@@ -778,6 +830,8 @@ function changeUnit(){
     問題を切り替えるので
     音声認識を一度止める
   */
+
+  judgePending = false;
 
   shouldListen = false;
 
