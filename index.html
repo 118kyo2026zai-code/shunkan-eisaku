@@ -271,6 +271,16 @@ if(SpeechRecognition){
     音声を認識したとき
   */
 
+  speech.onstart = function(){
+
+  console.log("音声認識スタート");
+
+  document.getElementById(
+    "micButton"
+  ).style.display = "none";
+
+};
+  
   speech.onresult = function(e){
 
     latestText =
@@ -473,10 +483,6 @@ function startRecognition(){
   try{
 
     speech.start();
-
-    document.getElementById(
-      "micButton"
-    ).style.display = "none";
 
 
   }catch(error){
