@@ -22,21 +22,57 @@ body{
   box-sizing:border-box;
 }
 
-.top-area{
-  position:fixed;
-  top:10px;
-  left:10px;
-  z-index:1000;
+
+/* 最初の準備画面 */
+
+#setupArea{
+  max-width:700px;
+  margin:0 auto 30px auto;
+}
+
+#setupMessage{
+  font-size:28px;
+  font-weight:bold;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.setupButton{
+  width:320px;
+  height:80px;
+  font-size:28px;
+  border-radius:15px;
+  cursor:pointer;
+  margin:10px auto;
+  display:block;
+}
+
+#voiceCheckButton{
+  background:#eeeeee;
+  border:3px solid #999999;
 }
 
 #micButton{
-  width:200px;
-  height:70px;
-  font-size:24px;
   background:#ffd966;
   border:3px solid #cc9900;
-  border-radius:15px;
 }
+
+#startPracticeButton{
+  background:#d9ead3;
+  border:3px solid #6aa84f;
+}
+
+#setupStatus{
+  font-size:22px;
+  min-height:35px;
+  margin-top:15px;
+  line-height:1.5;
+}
+
+#practiceArea{
+  display:none;
+}
+
 
 #unitSelect{
   width:220px;
@@ -46,6 +82,7 @@ body{
   margin:0 auto 15px auto;
 }
 
+
 #ja{
   font-size:45px;
   font-weight:bold;
@@ -53,12 +90,14 @@ body{
   line-height:1.4;
 }
 
+
 #answer{
   margin-top:10px;
   font-size:40px;
   color:blue;
   line-height:1.4;
 }
+
 
 input{
   width:90%;
@@ -70,6 +109,7 @@ input{
   text-align:center;
 }
 
+
 .button-area{
   display:flex;
   flex-direction:column;
@@ -77,6 +117,7 @@ input{
   gap:25px;
   margin-top:20px;
 }
+
 
 button{
   width:280px;
@@ -86,13 +127,29 @@ button{
   cursor:pointer;
 }
 
+
 #result{
   margin-top:25px;
   font-size:28px;
   white-space:pre-line;
 }
 
+
 @media (max-width:600px){
+
+  #setupMessage{
+    font-size:22px;
+  }
+
+  .setupButton{
+    width:280px;
+    height:75px;
+    font-size:25px;
+  }
+
+  #setupStatus{
+    font-size:19px;
+  }
 
   #unitSelect{
     font-size:34px;
@@ -113,7 +170,7 @@ button{
   button{
     width:260px;
     height:80px;
-    font-size:33px; 
+    font-size:33px;
   }
 
   #result{
@@ -127,50 +184,89 @@ button{
 
 <body>
 
-<div class="top-area">
 
-<button id="micButton" onclick="start()">
-マイクを許可
-</button>
+<!-- 最初の準備画面 -->
+
+<div id="setupArea">
+
+  <div id="setupMessage">
+    準備
+  </div>
+
+
+  <button
+    id="voiceCheckButton"
+    class="setupButton"
+    onclick="checkVoice()">
+    音声を確認
+  </button>
+
+
+  <button
+    id="micButton"
+    class="setupButton"
+    onclick="allowMicrophone()"
+    style="display:none;">
+    マイクを許可
+  </button>
+
+
+  <button
+    id="startPracticeButton"
+    class="setupButton"
+    onclick="startPractice()"
+    style="display:none;">
+    練習を始める
+  </button>
+
+
+  <div id="setupStatus"></div>
 
 </div>
 
 
-<select id="unitSelect" onchange="changeUnit()">
+<!-- 実際の練習画面 -->
 
-<option value="all">全部</option>
+<div id="practiceArea">
 
-<option value="肯定文第三文型">肯定文第三文型</option>
+  <select id="unitSelect" onchange="changeUnit()">
 
-<option value="疑問文第三文型">疑問文第三文型</option>
+    <option value="all">全部</option>
 
-<option value="命令文第三文型">命令文第三文型</option>
+    <option value="肯定文第三文型">肯定文第三文型</option>
 
-<option value="疑問詞③">疑問詞③</option>
+    <option value="疑問文第三文型">疑問文第三文型</option>
 
-</select>
+    <option value="命令文第三文型">命令文第三文型</option>
 
+    <option value="疑問詞③">疑問詞③</option>
 
-<h2 id="ja"></h2>
-
-<div id="result"></div>
-
-<div id="answer"></div>
-
-<input
-id="voiceText"
-type="text"
-placeholder="ここに認識結果が表示されます"
->
+  </select>
 
 
-<div class="button-area">
+  <h2 id="ja"></h2>
 
-<button onclick="stop()">判定</button>
+  <div id="result"></div>
 
-<button onclick="nextQuestion()">次の問題</button>
+  <div id="answer"></div>
 
-<button onclick="repeatAudio()">もう一回聞く</button>
+
+  <input
+    id="voiceText"
+    type="text"
+    placeholder="ここに認識結果が表示されます"
+  >
+
+
+  <div class="button-area">
+
+    <button onclick="stop()">判定</button>
+
+    <button onclick="nextQuestion()">次の問題</button>
+
+    <button onclick="repeatAudio()">もう一回聞く</button>
+
+  </div>
 
 </div>
 
@@ -204,8 +300,15 @@ let isStarting = false;
 
 
 // 判定待ちかどうか
-// 音声認識の onend が発生したら判定する
 let judgePending = false;
+
+
+// マイク許可済みか
+let microphoneReady = false;
+
+
+// 音声確認済みか
+let voiceReady = false;
 
 
 
@@ -248,9 +351,33 @@ if(SpeechRecognition){
 
     isStarting = false;
 
-    document.getElementById(
-      "micButton"
-    ).style.display = "none";
+
+    /*
+      最初の「マイクを許可」で
+      音声認識が開始された場合
+    */
+
+    if(!microphoneReady){
+
+      microphoneReady = true;
+
+
+      document.getElementById(
+        "micButton"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "startPracticeButton"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "setupStatus"
+      ).innerText =
+        "マイクの準備ができました。\n「練習を始める」を押してください。";
+
+    }
 
   };
 
@@ -264,6 +391,7 @@ if(SpeechRecognition){
 
     latestText =
       e.results[e.results.length - 1][0].transcript;
+
 
     document.getElementById(
       "voiceText"
@@ -285,10 +413,7 @@ if(SpeechRecognition){
 
 
     /*
-      「判定」ボタンが押されていて、
-      判定待ちなら、
-      音声認識が完全に終了したこのタイミングで
-      judge()を実行する。
+      判定待ちなら判定する
     */
 
     if(judgePending){
@@ -303,9 +428,7 @@ if(SpeechRecognition){
 
 
     /*
-      「判定」ではなく、
-      まだ問題に答えている途中なら
-      自動的にもう一度聞き始める。
+      練習中なら自動的に再開
     */
 
     if(shouldListen && !isJudging){
@@ -337,8 +460,36 @@ if(SpeechRecognition){
 
 
     /*
-      no-speechの場合
-      onendで判定または再スタートする。
+      マイク許可前のエラー
+    */
+
+    if(!microphoneReady){
+
+      if(
+        event.error === "not-allowed" ||
+        event.error === "service-not-allowed"
+      ){
+
+        document.getElementById(
+          "micButton"
+        ).disabled = false;
+
+
+        document.getElementById(
+          "setupStatus"
+        ).innerText =
+          "マイクが許可されませんでした。\nChromeのマイク設定を確認してください。";
+
+
+        return;
+
+      }
+
+    }
+
+
+    /*
+      無音は特に表示しない
     */
 
     if(event.error === "no-speech"){
@@ -349,7 +500,7 @@ if(SpeechRecognition){
 
 
     /*
-      マイクの使用が拒否された場合
+      マイク使用不可
     */
 
     if(
@@ -359,36 +510,29 @@ if(SpeechRecognition){
 
       shouldListen = false;
 
-      document.getElementById(
-        "micButton"
-      ).style.display = "block";
 
       document.getElementById(
         "result"
       ).innerText =
         "マイクが使えません。\n" +
-        "スマホの設定でChromeのマイクを「許可」にしてください。";
+        "設定＞アプリ＞Chrome＞マイク「許可」にしてください。";
+
 
       return;
 
     }
 
 
-    /*
-      その他のエラー
-    */
-
     if(!isJudging){
 
       document.getElementById(
         "result"
       ).innerText =
-        "🎤 マイクを確認してください。";
+        "マイクを確認してください。";
 
     }
 
   };
-
 
 
 }else{
@@ -401,16 +545,219 @@ if(SpeechRecognition){
 
 
 
+/*
+  最初の音声確認
+*/
+
+function checkVoice(){
+
+  const button =
+    document.getElementById(
+      "voiceCheckButton"
+    );
+
+
+  const status =
+    document.getElementById(
+      "setupStatus"
+    );
+
+
+  button.disabled = true;
+
+  button.innerText =
+    "音声を確認しています";
+
+
+  status.innerText =
+    "少しお待ちください。";
+
+
+  const synth =
+    window.speechSynthesis;
+
+
+  /*
+    ここでは今まで成功した
+    音声確認の方法をそのまま使用
+  */
+
+  synth.cancel();
+
+
+  const utterance =
+    new SpeechSynthesisUtterance(
+      "Hello."
+    );
+
+
+  utterance.lang = "en-US";
+
+  utterance.rate = 1.0;
+
+
+  utterance.onend = function(){
+
+    voiceReady = true;
+
+
+    button.style.display = "none";
+
+
+    document.getElementById(
+      "micButton"
+    ).style.display = "block";
+
+
+    status.innerText =
+      "音声の確認ができました。\n次に「マイクを許可」を押してください。";
+
+  };
+
+
+  utterance.onerror = function(){
+
+    button.disabled = false;
+
+    button.innerText =
+      "音声を確認";
+
+
+    status.innerText =
+      "音声を確認できませんでした。\nもう一度押してください。";
+
+  };
+
+
+  synth.speak(utterance);
+
+}
+
+
+
+/*
+  マイクを許可する
+*/
+
+function allowMicrophone(){
+
+  if(!speech){
+
+    return;
+
+  }
+
+
+  if(!voiceReady){
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById(
+      "micButton"
+    );
+
+
+  button.disabled = true;
+
+
+  document.getElementById(
+    "setupStatus"
+  ).innerText =
+    "マイクを準備しています。";
+
+
+  /*
+    ここが今回の重要な修正。
+
+    マイクを起動してすぐ停止するのではなく、
+    そのまま音声認識を開始する。
+  */
+
+  microphoneReady = false;
+
+  shouldListen = true;
+
+  isJudging = false;
+
+  judgePending = false;
+
+  latestText = "";
+
+
+  startRecognition();
+
+}
+
+
+
+/*
+  練習開始
+*/
+
+function startPractice(){
+
+  if(!microphoneReady){
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "setupArea"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "practiceArea"
+  ).style.display = "block";
+
+
+  /*
+    すでにマイクは起動しているので、
+    ここでは再起動しない
+  */
+
+  shouldListen = true;
+
+  isJudging = false;
+
+  judgePending = false;
+
+  latestText = "";
+
+
+  showQuestion();
+
+}
+
+
+
+/*
+  問題表示
+*/
+
 function showQuestion(){
 
   document.getElementById("ja").innerText =
     currentData[current].ja;
 
-  document.getElementById("answer").innerText = "";
 
-  document.getElementById("result").innerText = "";
+  document.getElementById("answer").innerText =
+    "";
 
-  document.getElementById("voiceText").value = "";
+
+  document.getElementById("result").innerText =
+    "";
+
+
+  document.getElementById("voiceText").value =
+    "";
+
 
   latestText = "";
 
@@ -427,14 +774,17 @@ function speakAnswer(message){
   const synth =
     window.speechSynthesis;
 
-  const uttr =
+
+  const utterance =
     new SpeechSynthesisUtterance(message);
 
-  uttr.lang = "en-US";
 
-  uttr.rate = 1.0;
+  utterance.lang = "en-US";
 
-  synth.speak(uttr);
+  utterance.rate = 1.0;
+
+
+  synth.speak(utterance);
 
 }
 
@@ -447,19 +797,30 @@ function speakAnswer(message){
 function startRecognition(){
 
   if(!speech){
+
     return;
+
   }
+
 
   if(!shouldListen){
+
     return;
+
   }
+
 
   if(isJudging){
+
     return;
+
   }
 
+
   if(isStarting){
+
     return;
+
   }
 
 
@@ -472,18 +833,11 @@ function startRecognition(){
 
   }catch(error){
 
-    /*
-      Android Chromeなどでは、
-      前の認識処理が完全に終了する前に
-      start()するとエラーになることがあります。
-
-      その場合は少し待ってから再試行します。
-    */
-
     console.log(
       "音声認識開始エラー:",
       error
     );
+
 
     isStarting = false;
 
@@ -505,64 +859,14 @@ function startRecognition(){
 
 
 /*
-  「マイクを許可」ボタン
-*/
-
-function start(){
-
-  if(!speech){
-    return;
-  }
-
-
-  /*
-    この問題ではマイクを聞き続ける
-  */
-
-  shouldListen = true;
-
-  isJudging = false;
-
-  judgePending = false;
-
-  latestText = "";
-
-
-  /*
-    画面に表示されていたエラーメッセージを消す
-  */
-
-  document.getElementById(
-    "result"
-  ).innerText = "";
-
-
-  startRecognition();
-
-}
-
-
-
-/*
   「判定」ボタン
 */
 
 function stop(){
 
-  /*
-    ここで自動再スタートを止める
-  */
-
   shouldListen = false;
 
   isJudging = true;
-
-
-  /*
-    判定待ちにする。
-    実際のjudge()は、
-    音声認識のonendで実行する。
-  */
 
   judgePending = true;
 
@@ -594,6 +898,7 @@ function judge(){
   const user =
     normalize(latestText);
 
+
   const correct =
     normalize(currentData[current].en);
 
@@ -604,6 +909,7 @@ function judge(){
       "result"
     ).innerText =
       "◎ 正解！";
+
 
     document.getElementById(
       "answer"
@@ -623,6 +929,7 @@ function judge(){
       "result"
     ).innerText =
       "❌ ちがいます";
+
 
     document.getElementById(
       "answer"
@@ -659,24 +966,10 @@ function judge(){
 
 function nextQuestion(){
 
-  /*
-    前の問題の読み上げが残っていた場合は
-    ここで停止する。
-  */
-
   speechSynthesis.cancel();
 
 
-  /*
-    判定待ちを解除
-  */
-
   judgePending = false;
-
-
-  /*
-    現在の音声認識を止める
-  */
 
   shouldListen = false;
 
@@ -705,7 +998,9 @@ function nextQuestion(){
 
     if(wrongQuestions.length > 0){
 
-      currentData = [...wrongQuestions];
+      currentData =
+        [...wrongQuestions];
+
 
       wrongQuestions = [];
 
@@ -722,19 +1017,56 @@ function nextQuestion(){
 
       alert("クリア！");
 
+
       current = 0;
 
       showQuestion();
 
 
-      /*
-        最初の問題に戻ったので
-        マイクボタンを表示
-      */
+      document.getElementById(
+        "setupArea"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "practiceArea"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "voiceCheckButton"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "voiceCheckButton"
+      ).disabled = false;
+
+
+      document.getElementById(
+        "voiceCheckButton"
+      ).innerText =
+        "音声を確認";
+
 
       document.getElementById(
         "micButton"
-      ).style.display = "block";
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "startPracticeButton"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "setupStatus"
+      ).innerText = "";
+
+
+      voiceReady = false;
+
+      microphoneReady = false;
 
 
       return;
@@ -746,10 +1078,6 @@ function nextQuestion(){
 
   showQuestion();
 
-
-  /*
-    次の問題のマイクを開始
-  */
 
   setTimeout(function(){
 
@@ -784,11 +1112,6 @@ function repeatAudio(){
 */
 
 function changeUnit(){
-
-  /*
-    問題を切り替えるので
-    音声認識を一度止める
-  */
 
   judgePending = false;
 
@@ -841,12 +1164,19 @@ function changeUnit(){
 
 
   /*
-    マイクボタンを再表示
+    ユニット変更後も
+    音声認識を再開
   */
 
-  document.getElementById(
-    "micButton"
-  ).style.display = "block";
+  setTimeout(function(){
+
+    shouldListen = true;
+
+    isJudging = false;
+
+    startRecognition();
+
+  },500);
 
 }
 
