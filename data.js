@@ -20,7 +20,7 @@ const data = [
 
 {unit:"肯定文第三文型",ja:"僕は英語を話す",en:"I speak English."},
 
-{unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook denner."},
+{unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook dinner."},
 
 {unit:"肯定文第三文型",ja:"僕はダンスが好きです",en:"I like dance."},
 
