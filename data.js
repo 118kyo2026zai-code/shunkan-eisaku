@@ -5,6 +5,22 @@ const data = [
 {unit:"肯定文第三文型",ja:"僕は自転車が欲しい",en:"I want a bike."},
 
 {unit:"肯定文第三文型",ja:"私は英語を教える",en:"I teach English."},
+    
+{unit:"肯定文第三文型",ja:"私はかぎを隠します",en:"I hide my key."},
+    
+{unit:"肯定文第三文型",ja:"私はおもちゃを修理します",en:"I fix the toy."},
+    
+{unit:"肯定文第三文型",ja:"私は自転車に乗ります",en:"I ride my bike."},
+    
+{unit:"肯定文第三文型",ja:"私はそれを探します",en:"I search for it."},
+    
+{unit:"肯定文第三文型",ja:"私はポケモンカードを集めます",en:"I collect Pokémon cards."},
+    
+{unit:"肯定文第三文型",ja:"私は本を選びます",en:"I choose a book."},
+    
+{unit:"肯定文第三文型",ja:"私はヒップホップを踊ります",en:"I dance hip-hop."},
+    
+{unit:"肯定文第三文型",ja:"私はプリントを渡します",en:"I pass the worksheet."},
 
 {unit:"肯定文第三文型",ja:"あなたは宿題をする",en:"You do your homework."},
 
@@ -52,7 +68,23 @@ const data = [
 {unit:"疑問文第三文型",ja:"あなたは自転車が欲しいですか？",en:"Do you want a bike?"},
 
 {unit:"疑問文第三文型",ja:"あなたは英語を教えますか？",en:"Do you teach English?"},
-
+    
+{unit:"疑問文第三文型",ja:"あなたはかぎを隠しますか？",en:"Do you hide your key?"},
+    
+{unit:"疑問文第三文型",ja:"あなたはおもちゃを修理しますか？",en:"Do you fix the toy?"},
+    
+{unit:"疑問文第三文型",ja:"あなたは自転車に乗りますか？",en:"Do you ride your bike?"},
+    
+{unit:"疑問文第三文型",ja:"あなたはそれを探しますか？",en:"Do you search for it?"},
+    
+{unit:"疑問文第三文型",ja:"あなたはポケモンカードを集めますか？",en:"Do you collect Pokémon cards?"},
+    
+{unit:"疑問文第三文型",ja:"あなたは本を選びますか？",en:"Do you choose a book?"},
+    
+{unit:"疑問文第三文型",ja:"あなたはヒップホップを踊りますか？",en:"Do you dance hip-hop?"},
+    
+{unit:"疑問文第三文型",ja:"あなたはプリントを渡しますか？",en:"Do you pass the worksheet?"},
+    
 {unit:"疑問文第三文型",ja:"あなたは宿題をしますか？",en:"Do yo do homework?"},
 
 {unit:"疑問文第三文型",ja:"私たちはあなたの友だちを助けますか？",en:"Do we help your friend?"},
@@ -107,7 +139,23 @@ const data = [
 {unit:"命令文第三文型",ja:"あなたの名前を書きなさい",en:"Write your name."},
 
 {unit:"命令文第三文型",ja:"コンピューターを使いなさい",en:"Use a computer."},
-
+    
+{unit:"命令文第三文型",ja:"それを隠して！",en:"Hide it."},
+    
+{unit:"命令文第三文型",ja:"おもちゃを修理して！",en:"Fix the toy."},
+    
+{unit:"命令文第三文型",ja:"自転車に乗って！",en:"Ride your bike."},
+    
+{unit:"命令文第三文型",ja:"それを探して！",en:"Search for it."},
+    
+{unit:"命令文第三文型",ja:"ポケモンカードを集めて！",en:"Collect Pokémon cards."},
+    
+{unit:"命令文第三文型",ja:"本を選んで！",en:"Choose a book."},
+    
+{unit:"命令文第三文型",ja:"ヒップホップを踊って！",en:"Dance hip-hop."},
+    
+{unit:"命令文第三文型",ja:"プリントを渡して！",en:"Pass the worksheet."},
+    
 {unit:"命令文第三文型",ja:"英語を話しなさい",en:"Speak English."},
 
 {unit:"命令文第三文型",ja:"夕食を作りなさい",en:"Cook dinner."},
