@@ -146,7 +146,7 @@ const data = [
     
 {unit:"命令文第三文型",ja:"自転車に乗って！",en:"Ride your bike."},
     
-{unit:"命令文第三文型",ja:"それを探して！",en:"Search for it."},
+{unit:"命令文第三文型",ja:"それを探して！",en:"Search  it."},
     
 {unit:"命令文第三文型",ja:"ポケモンカードを集めて！",en:"Collect Pokémon cards."},
     
