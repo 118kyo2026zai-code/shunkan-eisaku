@@ -81,7 +81,7 @@ const data = [
     
 {unit:"疑問文第三文型",ja:"あなたは本を選びますか？",en:"Do you choose a book?"},
     
-{unit:"疑問文第三文型",ja:"あなたはヒップホップを踊りますか？",en:"Do you dance hip-hop?"},
+{unit:"疑問文第三文型",ja:"あなたはヒップホップを踊りますか？",en:"Do you dance hip hop?"},
     
 {unit:"疑問文第三文型",ja:"あなたはプリントを渡しますか？",en:"Do you pass the worksheet?"},
     
@@ -142,17 +142,17 @@ const data = [
     
 {unit:"命令文第三文型",ja:"それを隠して！",en:"Hide it."},
     
-{unit:"命令文第三文型",ja:"おもちゃを修理して！",en:"Fix the toy."},
+{unit:"命令文第三文型",ja:"そのおもちゃを修理して！",en:"Fix the toy."},
     
-{unit:"命令文第三文型",ja:"自転車に乗って！",en:"Ride your bike."},
+{unit:"命令文第三文型",ja:"君の自転車に乗って！",en:"Ride your bike."},
     
-{unit:"命令文第三文型",ja:"それを探して！",en:"Search  it."},
+{unit:"命令文第三文型",ja:"それを探して！",en:"Search for it."},
     
-{unit:"命令文第三文型",ja:"ポケモンカードを集めて！",en:"Collect Pokémon cards."},
+{unit:"命令文第三文型",ja:"ポケモンカードを集めて！",en:"Collect Pokemon cards."},
     
 {unit:"命令文第三文型",ja:"本を選んで！",en:"Choose a book."},
     
-{unit:"命令文第三文型",ja:"ヒップホップを踊って！",en:"Dance hip-hop."},
+{unit:"命令文第三文型",ja:"ヒップホップを踊って！",en:"Dance hip hop."},
     
 {unit:"命令文第三文型",ja:"プリントを渡して！",en:"Pass the worksheet."},
     
