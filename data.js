@@ -207,8 +207,7 @@ const data = [
     
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
-{unit:"疑問詞③", ja:"あなたは何歳ですか。
-    ", en:"How old are you? "},
+{unit:"疑問詞③", ja:"あなたは何歳ですか。", en:"How old are you? "},
 {unit:"疑問詞③", ja:"あなたは、放課後にどんなスポーツをしますか。", en:"What sports do you  do after school?"},
 {unit:"疑問詞③", ja:"あなたの身長はいくつですか。", en:"How tall are you? "},
 {unit:"疑問詞③", ja:"この橋はどのくらいの長さですか。", en:"How long is this bridge? "},
