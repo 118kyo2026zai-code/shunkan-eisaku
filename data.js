@@ -207,16 +207,17 @@ const data = [
     
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
-{unit:"疑問詞③", ja:"あなたは何歳ですか。12才です。", en:"How old are you? I'm twelve."},
-{unit:"疑問詞③", ja:"あなたは普段、放課後にどんなスポーツをしますか。", en:"What sports do you usually do after school?"},
-{unit:"疑問詞③", ja:"けんの身長はいくつですか。彼は160cmです。", en:"How tall is Ken? He is 160 centimeters tall."},
-{unit:"疑問詞③", ja:"この橋はどのくらいの長さですか。それは10メートルです。", en:"How long is this bridge? It's ten meters long."},
+{unit:"疑問詞③", ja:"あなたは何歳ですか。
+    ", en:"How old are you? "},
+{unit:"疑問詞③", ja:"あなたは、放課後にどんなスポーツをしますか。", en:"What sports do you  do after school?"},
+{unit:"疑問詞③", ja:"あなたの身長はいくつですか。", en:"How tall are you? "},
+{unit:"疑問詞③", ja:"この橋はどのくらいの長さですか。", en:"How long is this bridge? "},
 {unit:"疑問詞③", ja:"どの本が面白いですか。", en:"Which book is interesting?"},
 {unit:"疑問詞③", ja:"トイレはどこにありますか。", en:"Where is the restroom?"},
-{unit:"疑問詞③", ja:"今日は何曜日ですか。木曜日です。", en:"What day is it today? It's Thursday."},
+{unit:"疑問詞③", ja:"今日は何曜日ですか。木曜日です。", en:"What day is it today? "},
 {unit:"疑問詞③", ja:"何故、彼は忙しいのですか。", en:"Why is he busy?"},
 {unit:"疑問詞③", ja:"家では英語と日本語、どちらを話しますか。", en:"Which do you speak at home, English or Japanese?"},
-{unit:"疑問詞③", ja:"彼はどうやってそこに行きますか。", en:"How does he go there?"},
+{unit:"疑問詞③", ja:"あなたはどうやってそこに行きますか。", en:"How do you go there?"},
 {unit:"疑問詞③", ja:"彼はバスでそこへ行きます。", en:"He goes there by bus."},
 {unit:"疑問詞③", ja:"彼女はどんな音楽が好きですか。", en:"What kind of music does she like?"},
 {unit:"疑問詞③", ja:"授業はいつ始まりますか。9時です。", en:"When does the class begin? At nine."},
