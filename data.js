@@ -35,7 +35,14 @@ const data = [
 {unit:"肯定文第三文型",ja:"僕はコンピューターを使う",en:"I use a computer."},
 
 {unit:"肯定文第三文型",ja:"僕は英語を話す",en:"I speak English."},
-
+{unit:"肯定文第三文型",ja:"私は犬が好きです",en:"I like dogs."},
+{unit:"肯定文第三文型",ja:"私は彼を知っています",en:"I know him."},
+{unit:"肯定文第三文型",ja:"私はかばんを持っています",en:"I have a bag."},
+{unit:"肯定文第三文型",ja:"私は学校に行きます",en:"I go to school."},
+{unit:"肯定文第三文型",ja:"私は友達の家に行きます",en:"I go to my friend's house."},
+{unit:"肯定文第三文型",ja:"私はその映画を見ます",en:"I watch the movie."},
+{unit:"肯定文第三文型",ja:"私はテレビを見ます",en:"I watch TV."},
+{unit:"肯定文第三文型",ja:"私は鍵を見つけます",en:"I find the key."},
 {unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook dinner."},
 
 {unit:"肯定文第三文型",ja:"僕はダンスが好きです",en:"I like dance."},
@@ -84,7 +91,14 @@ const data = [
 {unit:"疑問文第三文型",ja:"あなたはヒップホップを踊りますか？",en:"Do you dance hip hop?"},
     
 {unit:"疑問文第三文型",ja:"あなたはプリントを渡しますか？",en:"Do you pass the worksheet?"},
-    
+    {unit:"疑問文第三文型",ja:"あなたは犬が好きですか？",en:"Do you like dogs?"},
+{unit:"疑問文第三文型",ja:"あなたは彼を知っていますか？",en:"Do you know him?"},
+{unit:"疑問文第三文型",ja:"あなたはかばんを持っていますか？",en:"Do you have a bag?"},
+{unit:"疑問文第三文型",ja:"あなたは学校に行きますか？",en:"Do you go to school?"},
+{unit:"疑問文第三文型",ja:"あなたは友達の家に行きますか？",en:"Do you go to your friend's house?"},
+{unit:"疑問文第三文型",ja:"あなたはその映画を見ますか？",en:"Do you watch the movie?"},
+{unit:"疑問文第三文型",ja:"あなたはテレビを見ますか？",en:"Do you watch TV?"},
+{unit:"疑問文第三文型",ja:"あなたは鍵を見つけますか？",en:"Do you find the key?"},
 {unit:"疑問文第三文型",ja:"あなたは宿題をしますか？",en:"Do yo do homework?"},
 
 {unit:"疑問文第三文型",ja:"私たちはあなたの友だちを助けますか？",en:"Do we help your friend?"},
@@ -182,6 +196,15 @@ const data = [
 
 {unit:"命令文第三文型",ja:"本を一冊読みなさい",en:"Read a book."},
 
+     /*命令文*/
+{unit:"命令文",ja:"学校に行って！",en:"Go to school."},
+{unit:"命令文",ja:"ここに来て！",en:"Come here."},
+{unit:"命令文",ja:"その映画を見て！",en:"Watch the movie."},
+{unit:"命令文",ja:"テレビを見て！",en:"Watch TV."},
+{unit:"命令文",ja:"鍵を見つけて！",en:"Find the key."},
+
+
+    
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
 {unit:"疑問詞③", ja:"あなたは何歳ですか。12才です。", en:"How old are you? I'm twelve."},
