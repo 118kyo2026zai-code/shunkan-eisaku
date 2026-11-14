@@ -5,22 +5,6 @@ const data = [
 {unit:"肯定文第三文型",ja:"僕は自転車が欲しい",en:"I want a bike."},
 
 {unit:"肯定文第三文型",ja:"私は英語を教える",en:"I teach English."},
-    
-{unit:"肯定文第三文型",ja:"私はかぎを隠します",en:"I hide my key."},
-    
-{unit:"肯定文第三文型",ja:"私はおもちゃを修理します",en:"I fix the toy."},
-    
-{unit:"肯定文第三文型",ja:"私は自転車に乗ります",en:"I ride my bike."},
-    
-{unit:"肯定文第三文型",ja:"私はそれを探します",en:"I search for it."},
-    
-{unit:"肯定文第三文型",ja:"私はポケモンカードを集めます",en:"I collect Pokémon cards."},
-    
-{unit:"肯定文第三文型",ja:"私は本を選びます",en:"I choose a book."},
-    
-{unit:"肯定文第三文型",ja:"私はヒップホップを踊ります",en:"I dance hip-hop."},
-    
-{unit:"肯定文第三文型",ja:"私はプリントを渡します",en:"I pass the worksheet."},
 
 {unit:"肯定文第三文型",ja:"あなたは宿題をする",en:"You do your homework."},
 
@@ -35,15 +19,8 @@ const data = [
 {unit:"肯定文第三文型",ja:"僕はコンピューターを使う",en:"I use a computer."},
 
 {unit:"肯定文第三文型",ja:"僕は英語を話す",en:"I speak English."},
-{unit:"肯定文第三文型",ja:"私は犬が好きです",en:"I like dogs."},
-{unit:"肯定文第三文型",ja:"私は彼を知っています",en:"I know him."},
-{unit:"肯定文第三文型",ja:"私はかばんを持っています",en:"I have a bag."},
-{unit:"肯定文第三文型",ja:"私は学校に行きます",en:"I go to school."},
-{unit:"肯定文第三文型",ja:"私は友達の家に行きます",en:"I go to my friend's house."},
-{unit:"肯定文第三文型",ja:"私はその映画を見ます",en:"I watch the movie."},
-{unit:"肯定文第三文型",ja:"私はテレビを見ます",en:"I watch TV."},
-{unit:"肯定文第三文型",ja:"私は鍵を見つけます",en:"I find the key."},
-{unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook dinner."},
+
+{unit:"肯定文第三文型",ja:"私たちは夕食を作る",en:"We cook denner."},
 
 {unit:"肯定文第三文型",ja:"僕はダンスが好きです",en:"I like dance."},
 
@@ -69,63 +46,43 @@ const data = [
     
 {unit:"肯定文第三文型",ja:"私は一冊の本を読みます",en:"I read a book."},
 
+    {unit:"肯定文第三文型",ja:"私はブレイクダンスを練習します。",en:"I practice breakdancing."},
+{unit:"肯定文第三文型",ja:"私はミーティングを始めます。",en:"I begin the meeting."},
+{unit:"肯定文第三文型",ja:"私はあなたを必要とします。",en:"I need you."},
+{unit:"肯定文第三文型",ja:"私はそう考えます。",en:"I think so."},
+{unit:"肯定文第三文型",ja:"私はプレゼントをあげます。",en:"I give presents."},
+{unit:"肯定文第三文型",ja:"私は英語を学びます。",en:"I learn English."},
+{unit:"肯定文第三文型",ja:"私は絵に色を塗ります。",en:"I paint a picture."},
+{unit:"肯定文第三文型",ja:"私はお金を持っています。",en:"I have money."},
+{unit:"肯定文第三文型",ja:"私はブレイクダンスが好きです。",en:"I like breakdancing."},
+{unit:"肯定文第三文型",ja:"私はアイスクリームを買います。",en:"I buy ice cream."},
+{unit:"肯定文第三文型",ja:"私はそれを知っています。",en:"I know that."},
+{unit:"肯定文第三文型",ja:"私は新しいゲームを手に入れます。",en:"I get a new game."},
+{unit:"肯定文第三文型",ja:"私は歌を歌います。",en:"I sing a song."},
+{unit:"肯定文第三文型",ja:"私はお菓子を分けます。",en:"I share snacks."},
+{unit:"肯定文第三文型",ja:"私は自転車が欲しいです。",en:"I want a bike."},
 
-/* 疑問文第三文型 */{unit:"疑問文第三文型",ja:"
-    
-{unit:"疑問文第三文型",ja:"ミーティングを始めますか？",en:"Do you start the meeting?"},
-{unit:"疑問文第三文型",ja:"私を必要としますか？",en:"Do you need me?"},
-{unit:"疑問文第三文型",ja:"そう考えますか？",en:"Do you think so?"},
-{unit:"疑問文第三文型",ja:"プレゼントをあげますか？",en:"Do you give presents?"},
-{unit:"疑問文第三文型",ja:"英語を学びますか？",en:"Do you learn English?"},
-{unit:"疑問文第三文型",ja:"絵に色を塗りますか？",en:"Do you paint pictures?"},
-{unit:"疑問文第三文型",ja:"お金を持っていますか？",en:"Do you have money?"},
-{unit:"疑問文第三文型",ja:"ブレイクダンスが好きですか？",en:"Do you like breakdancing?"},
-{unit:"疑問文第三文型",ja:"アイスクリームを買いますか？",en:"Do you buy ice cream?"},
-{unit:"疑問文第三文型",ja:"それを知っていますか？",en:"Do you know that?"},
-{unit:"疑問文第三文型",ja:"新しいゲームを手に入れますか？",en:"Do you get a new game?"},
-{unit:"疑問文第三文型",ja:"歌を歌いますか？",en:"Do you sing a song?"},
-{unit:"疑問文第三文型",ja:"お菓子を分けますか？",en:"Do you share snacks?"},
-{unit:"疑問文第三文型",ja:"自転車が欲しいですか？",en:"Do you want a bike?"},
+     /*肯定文*/
 
-{unit:"疑問文",ja:"友だちを待ちますか？",en:"Do you wait for your friends?"},
-{unit:"疑問文",ja:"登山をしますか？",en:"Do you go mountain climbing?"},
-{unit:"疑問文",ja:"泳ぎますか？",en:"Do you swim?"},
-{unit:"疑問文",ja:"歩きますか？",en:"Do you walk?"},
-{unit:"疑問文",ja:"走りますか？",en:"Do you run?"},
-{unit:"疑問文",ja:"働きますか？",en:"Do you work?"},
-{unit:"疑問文",ja:"眠りますか？",en:"Do you sleep?"},
-{unit:"疑問文",ja:"起きますか？",en:"Do you get up?"},
-{unit:"疑問文",ja:"目覚めますか？",en:"Do you wake up?"},
-{unit:"疑問文",ja:"ブレイキンを踊りますか？",en:"Do you breakdance?"},
-{unit:"疑問文",ja:"泣きますか？",en:"Do you cry?"},
+{unit:"肯定文",ja:"私は友だちを待ちます。",en:"I wait for my friends."},
+{unit:"肯定文",ja:"私は登山をします。",en:"I go mountain climbing."},
+{unit:"肯定文",ja:"私は泳ぎます。",en:"I swim."},
+{unit:"肯定文",ja:"私は歩きます。",en:"I walk."},
+{unit:"肯定文",ja:"私は走ります。",en:"I run."},
+{unit:"肯定文",ja:"私は働きます。",en:"I work."},
+{unit:"肯定文",ja:"私は眠ります。",en:"I sleep."},
+{unit:"肯定文",ja:"私は起きます。",en:"I get up."},
+{unit:"肯定文",ja:"私は目覚めます。",en:"I wake up."},
+{unit:"肯定文",ja:"私はブレイキンを踊ります。",en:"I breakdance."},
+{unit:"肯定文",ja:"私は泣きます。",en:"I cry."},
+
+
+/* 疑問文第三文型 */
 
 {unit:"疑問文第三文型",ja:"あなたは自転車が欲しいですか？",en:"Do you want a bike?"},
 
 {unit:"疑問文第三文型",ja:"あなたは英語を教えますか？",en:"Do you teach English?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはかぎを隠しますか？",en:"Do you hide your key?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはおもちゃを修理しますか？",en:"Do you fix the toy?"},
-    
-{unit:"疑問文第三文型",ja:"あなたは自転車に乗りますか？",en:"Do you ride your bike?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはそれを探しますか？",en:"Do you search for it?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはポケモンカードを集めますか？",en:"Do you collect Pokémon cards?"},
-    
-{unit:"疑問文第三文型",ja:"あなたは本を選びますか？",en:"Do you choose a book?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはヒップホップを踊りますか？",en:"Do you dance hip hop?"},
-    
-{unit:"疑問文第三文型",ja:"あなたはプリントを渡しますか？",en:"Do you pass the worksheet?"},
-    {unit:"疑問文第三文型",ja:"あなたは犬が好きですか？",en:"Do you like dogs?"},
-{unit:"疑問文第三文型",ja:"あなたは彼を知っていますか？",en:"Do you know him?"},
-{unit:"疑問文第三文型",ja:"あなたはかばんを持っていますか？",en:"Do you have a bag?"},
-{unit:"疑問文第三文型",ja:"あなたは学校に行きますか？",en:"Do you go to school?"},
-{unit:"疑問文第三文型",ja:"あなたは友達の家に行きますか？",en:"Do you go to your friend's house?"},
-{unit:"疑問文第三文型",ja:"あなたはその映画を見ますか？",en:"Do you watch the movie?"},
-{unit:"疑問文第三文型",ja:"あなたはテレビを見ますか？",en:"Do you watch TV?"},
-{unit:"疑問文第三文型",ja:"あなたは鍵を見つけますか？",en:"Do you find the key?"},
+
 {unit:"疑問文第三文型",ja:"あなたは宿題をしますか？",en:"Do yo do homework?"},
 
 {unit:"疑問文第三文型",ja:"私たちはあなたの友だちを助けますか？",en:"Do we help your friend?"},
@@ -164,31 +121,40 @@ const data = [
 
 {unit:"疑問文第三文型",ja:"あなたはあなたの滞在を楽しみますか？",en:"Do you enjoy your stay?"},
 
-{unit:"疑問文第三文型",ja:"あなたは本を一冊読みますか？",en:"Do you read a book?"},
+{unit:"疑問文第三文型",ja:"あなたは本を一冊読みますか？",en:"Do you read a book?"},{unit:"疑問文第三文型",ja:"ブレイクダンスを練習しますか？",en:"Do you practice breakdancing?"},
+{unit:"疑問文第三文型",ja:"ミーティングを始めますか？",en:"Do you begin the meeting?"},
+
+{unit:"疑問文第三文型",ja:"お金を持っていますか？",en:"Do you have money?"},
+{unit:"疑問文第三文型",ja:"ブレイクダンスが好きですか？",en:"Do you like breakdancing?"},
+{unit:"疑問文第三文型",ja:"アイスクリームを買いますか？",en:"Do you buy ice cream?"},
+{unit:"疑問文第三文型",ja:"それを知っていますか？",en:"Do you know it?"},
+{unit:"疑問文第三文型",ja:"新しいゲームを手に入れますか？",en:"Do you get a new game?"},
+{unit:"疑問文第三文型",ja:"歌を歌いますか？",en:"Do you sing a song?"},
+{unit:"疑問文第三文型",ja:"お菓子を分けますか？",en:"Do you share snacks?"},
+{unit:"疑問文第三文型",ja:"自転車が欲しいですか？",en:"Do you want a bike?"},
+    {unit:"疑問文第三文型",ja:"それを必要としますか？",en:"Do you need it?"},
+{unit:"疑問文第三文型",ja:"そう考えますか？",en:"Do you think so?"},
+{unit:"疑問文第三文型",ja:"プレゼントをあげますか？",en:"Do you give presents?"},
+{unit:"疑問文第三文型",ja:"英語を学びますか？",en:"Do you learn English?"},
+{unit:"疑問文第三文型",ja:"絵に色を塗りますか？",en:"Do you paint pictures?"},
+
+     /*疑問文*/
+{unit:"疑問文",ja:"友だちを待ちますか？",en:"Do you wait for your friends?"},
+{unit:"疑問文",ja:"登山をしますか？",en:"Do you hike?"},
+{unit:"疑問文",ja:"泳ぎますか？",en:"Do you swim?"},
+{unit:"疑問文",ja:"歩きますか？",en:"Do you walk?"},
+{unit:"疑問文",ja:"走りますか？",en:"Do you run?"},
+{unit:"疑問文",ja:"働きますか？",en:"Do you work?"},
+{unit:"疑問文",ja:"眠りますか？",en:"Do you sleep?"},
+{unit:"疑問文",ja:"起きますか？",en:"Do you get up?"},
+{unit:"疑問文",ja:"目覚めますか？",en:"Do you wake up?"},
+{unit:"疑問文",ja:"ブレイキンを踊りますか？",en:"Do you breakdance?"},
+{unit:"疑問文",ja:"泣きますか？",en:"Do you cry?"},
 
 
     /* 命令文第三文型 */
+   
 
-{unit:"命令文第三文型",ja:"サッカーを練習して！",en:"Practice soccer!"},
-{unit:"命令文第三文型",ja:"ブレイクダンスを練習して！",en:"Do breakdancing!"},
-{unit:"命令文第三文型",ja:"ミーティングを始めて！",en:"Start the meeting!"},
-{unit:"命令文第三文型",ja:"プレゼントをあげて！",en:"Give a present!"},
-{unit:"命令文第三文型",ja:"英語を学んで！",en:"Learn English!"},
-{unit:"命令文第三文型",ja:"待って！",en:"Wait!"},
-{unit:"命令文第三文型",ja:"色を塗って！",en:"Paint it!"},
-{unit:"命令文第三文型",ja:"登山をして！",en:"Go mountain climbing!"},
-{unit:"命令文第三文型",ja:"アイスクリームを買って！",en:"Buy some ice cream!"},
-{unit:"命令文第三文型",ja:"泳いで！",en:"Swim!"},
-{unit:"命令文第三文型",ja:"新しいゲームを手に入れて！",en:"Get a new game!"},
-{unit:"命令文第三文型",ja:"歩いて！",en:"Walk!"},
-{unit:"命令文第三文型",ja:"走って！",en:"Run!"},
-{unit:"命令文第三文型",ja:"働いて！",en:"Work!"},
-{unit:"命令文第三文型",ja:"眠って！",en:"Sleep!"},
-{unit:"命令文第三文型",ja:"起きて！",en:"Get up!"},
-{unit:"命令文第三文型",ja:"目覚めて！",en:"Wake up!"},
-{unit:"命令文第三文型",ja:"ブレイキンを踊って！",en:"Dance breaking!"},
-{unit:"命令文第三文型",ja:"歌を歌って！",en:"Sing a song!"},
-{unit:"命令文第三文型",ja:"泣いて！",en:"Cry!"},
 {unit:"命令文第三文型",ja:"お菓子を分けて！",en:"Share the snacks!"},
 
 {unit:"命令文第三文型",ja:"宿題をしなさい",en:"Do your homework."},
@@ -202,23 +168,7 @@ const data = [
 {unit:"命令文第三文型",ja:"あなたの名前を書きなさい",en:"Write your name."},
 
 {unit:"命令文第三文型",ja:"コンピューターを使いなさい",en:"Use a computer."},
-    
-{unit:"命令文第三文型",ja:"それを隠して！",en:"Hide it."},
-    
-{unit:"命令文第三文型",ja:"そのおもちゃを修理して！",en:"Fix the toy."},
-    
-{unit:"命令文第三文型",ja:"君の自転車に乗って！",en:"Ride your bike."},
-    
-{unit:"命令文第三文型",ja:"それを探して！",en:"Search for it."},
-    
-{unit:"命令文第三文型",ja:"ポケモンカードを集めて！",en:"Collect Pokemon cards."},
-    
-{unit:"命令文第三文型",ja:"本を選んで！",en:"Choose a book."},
-    
-{unit:"命令文第三文型",ja:"ヒップホップを踊って！",en:"Dance hip hop."},
-    
-{unit:"命令文第三文型",ja:"プリントを渡して！",en:"Pass the worksheet."},
-    
+
 {unit:"命令文第三文型",ja:"英語を話しなさい",en:"Speak English."},
 
 {unit:"命令文第三文型",ja:"夕食を作りなさい",en:"Cook dinner."},
@@ -244,36 +194,52 @@ const data = [
 {unit:"命令文第三文型",ja:"あなたの滞在を楽しみなさい",en:"Enjoy your stay."},
 
 {unit:"命令文第三文型",ja:"本を一冊読みなさい",en:"Read a book."},
+     {unit:"命令文第三文型",ja:"ブレイクダンスを練習して！",en:"Practice breakdancing!"},
+{unit:"命令文第三文型",ja:"ミーティングを始めて！",en:"Begin the meeting!"},
+    {unit:"命令文第三文型",ja:"ブレイキンを踊って！",en:"Do breaking!"},
+{unit:"命令文第三文型",ja:"歌を歌って！",en:"Sing a song!"},
+    {unit:"命令文第三文型",ja:"色を塗って！",en:"Paint it!"},
+    {unit:"命令文第三文型",ja:"新しいゲームを手に入れなさい！",en:"Get a new game!"},
 
-     /*命令文*/
-{unit:"命令文",ja:"学校に行って！",en:"Go to school."},
-{unit:"命令文",ja:"ここに来て！",en:"Come here."},
-{unit:"命令文",ja:"その映画を見て！",en:"Watch the movie."},
-{unit:"命令文",ja:"テレビを見て！",en:"Watch TV."},
-{unit:"命令文",ja:"鍵を見つけて！",en:"Find the key."},
+{unit:"命令文第三文型",ja:"アイスクリームを買って！",en:"Buy some ice cream!"},
+{unit:"命令文第三文型",ja:"プレゼントをあげて！",en:"Give a present!"},
+{unit:"命令文第三文型",ja:"英語を学んで！",en:"Learn English!"},
+
+   
+{unit:"命令文第三文型",ja:"泣いて！",en:"Cry!"},
+
+    /*命令文*/
+     {unit:"命令文",ja:"待って！",en:"Wait!"},
+
+{unit:"命令文",ja:"泳いで！",en:"Swim!"},
+
+{unit:"命令文",ja:"歩いて！",en:"Walk!"},
+{unit:"命令文",ja:"走って！",en:"Run!"},
+{unit:"命令文",ja:"働いて！",en:"Work!"},
+{unit:"命令文",ja:"眠って！",en:"Sleep!"},
+{unit:"命令文",ja:"起きて！",en:"Get up!"},
+{unit:"命令文",ja:"目覚めて！",en:"Wake up!"},
 
 
-    
     /*疑問詞③*/
     {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
-{unit:"疑問詞③", ja:"あなたは何歳ですか。", en:"How old are you? "},
-{unit:"疑問詞③", ja:"あなたは、放課後にどんなスポーツをしますか。", en:"What sports do you  do after school?"},
-{unit:"疑問詞③", ja:"あなたの身長はいくつですか。", en:"How tall are you? "},
-{unit:"疑問詞③", ja:"この橋はどのくらいの長さですか。", en:"How long is this bridge? "},
+{unit:"疑問詞③", ja:"あなたは何歳ですか。12才です。", en:"How old are you? I'm twelve."},
+{unit:"疑問詞③", ja:"あなたは普段、放課後にどんなスポーツをしますか。", en:"What sports do you usually do after school?"},
+{unit:"疑問詞③", ja:"けんの身長はいくつですか。彼は160cmです。", en:"How tall is Ken? He is 160 centimeters tall."},
+{unit:"疑問詞③", ja:"この橋はどのくらいの長さですか。それは10メートルです。", en:"How long is this bridge? It's ten meters long."},
 {unit:"疑問詞③", ja:"どの本が面白いですか。", en:"Which book is interesting?"},
 {unit:"疑問詞③", ja:"トイレはどこにありますか。", en:"Where is the restroom?"},
-{unit:"疑問詞③", ja:"今日は何曜日ですか。", en:"What day is it today? "},
+{unit:"疑問詞③", ja:"今日は何曜日ですか。木曜日です。", en:"What day is it today? It's Thursday."},
 {unit:"疑問詞③", ja:"何故、彼は忙しいのですか。", en:"Why is he busy?"},
 {unit:"疑問詞③", ja:"家では英語と日本語、どちらを話しますか。", en:"Which do you speak at home, English or Japanese?"},
-{unit:"疑問詞③", ja:"あなたはどうやってそこに行きますか。", en:"How do you go there?"},
+{unit:"疑問詞③", ja:"彼はどうやってそこに行きますか。", en:"How does he go there?"},
 {unit:"疑問詞③", ja:"彼はバスでそこへ行きます。", en:"He goes there by bus."},
 {unit:"疑問詞③", ja:"彼女はどんな音楽が好きですか。", en:"What kind of music does she like?"},
-{unit:"疑問詞③", ja:"授業はいつ始まりますか。", en:"When does the class begin? "},
+{unit:"疑問詞③", ja:"授業はいつ始まりますか。9時です。", en:"When does the class begin? At nine."},
 {unit:"疑問詞③", ja:"箱の中に何がありますか。", en:"What is in the box?"},
 {unit:"疑問詞③", ja:"誰が速く走りますか。", en:"Who runs fast?"}
 ,
- 
-  /*主語＋be動詞＋名詞肯定文*/
+     /*主語＋be動詞＋名詞肯定文*/
 {unit:"主語＋be動詞＋名詞肯定文",ja:"僕は大輝です",en:"I am Taiki."},
 {unit:"主語＋be動詞＋名詞肯定文",ja:"僕は学生です",en:"I am a student."},
 {unit:"主語＋be動詞＋名詞肯定文",ja:"私たちは学生です",en:"We are students."},
@@ -315,4 +281,8 @@ const data = [
 {unit:"主語＋be動詞＋名詞疑問文",ja:"こちらはゲイジ先生ですか？",en:"Is this Mr. Gage?"},
 {unit:"主語＋be動詞＋名詞疑問文",ja:"それはリンゴですか？",en:"Is that an apple?"},
 {unit:"主語＋be動詞＋名詞疑問文",ja:"あれは本ですか？",en:"Is that a book?"},   
- ];
+ 
+  ];
+
+
+
