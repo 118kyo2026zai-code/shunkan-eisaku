@@ -155,7 +155,7 @@ const data = [
     /* 命令文第三文型 */
    
 
-{unit:"命令文第三文型",ja:"お菓子を分けて！",en:"Share the snacks!"},
+
 
 {unit:"命令文第三文型",ja:"宿題をしなさい",en:"Do your homework."},
 
@@ -194,22 +194,23 @@ const data = [
 {unit:"命令文第三文型",ja:"あなたの滞在を楽しみなさい",en:"Enjoy your stay."},
 
 {unit:"命令文第三文型",ja:"本を一冊読みなさい",en:"Read a book."},
-     {unit:"命令文第三文型",ja:"ブレイクダンスを練習して！",en:"Practice breakdancing!"},
+{unit:"命令文第三文型",ja:"ブレイクダンスを練習して！",en:"Practice breakdancing!"},
 {unit:"命令文第三文型",ja:"ミーティングを始めて！",en:"Begin the meeting!"},
-    {unit:"命令文第三文型",ja:"ブレイキンを踊って！",en:"Do breaking!"},
+{unit:"命令文第三文型",ja:"ブレイキンを踊って！",en:"Do breaking!"},
 {unit:"命令文第三文型",ja:"歌を歌って！",en:"Sing a song!"},
-    {unit:"命令文第三文型",ja:"色を塗って！",en:"Paint it!"},
-    {unit:"命令文第三文型",ja:"新しいゲームを手に入れなさい！",en:"Get a new game!"},
+{unit:"命令文第三文型",ja:"色を塗って！",en:"Paint it!"},    
+{unit:"命令文第三文型",ja:"新しいゲームを手に入れなさい！",en:"Get a new game!"},
 
 {unit:"命令文第三文型",ja:"アイスクリームを買って！",en:"Buy some ice cream!"},
 {unit:"命令文第三文型",ja:"プレゼントをあげて！",en:"Give a present!"},
 {unit:"命令文第三文型",ja:"英語を学んで！",en:"Learn English!"},
+{unit:"命令文第三文型",ja:"お菓子を分けて！",en:"Share the snacks!"},
 
    
 {unit:"命令文第三文型",ja:"泣いて！",en:"Cry!"},
 
     /*命令文*/
-     {unit:"命令文",ja:"待って！",en:"Wait!"},
+{unit:"命令文",ja:"待って！",en:"Wait!"},
 
 {unit:"命令文",ja:"泳いで！",en:"Swim!"},
 
@@ -222,7 +223,7 @@ const data = [
 
 
     /*疑問詞③*/
-    {unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
+{unit:"疑問詞③", ja:"あなたはどの教科が好きですか。", en:"What subject do you like?"},
 {unit:"疑問詞③", ja:"あなたは何歳ですか。12才です。", en:"How old are you? I'm twelve."},
 {unit:"疑問詞③", ja:"あなたは普段、放課後にどんなスポーツをしますか。", en:"What sports do you usually do after school?"},
 {unit:"疑問詞③", ja:"けんの身長はいくつですか。彼は160cmです。", en:"How tall is Ken? He is 160 centimeters tall."},
@@ -269,7 +270,7 @@ const data = [
 {unit:"主語＋be動詞＋名詞否定文",ja:"あれは本ではありません",en:"That is not a book."},
 
 /*主語＋be動詞＋名詞疑問文*/
- {unit:"主語＋be動詞＋名詞疑問文",ja:"僕は大輝ですか？",en:"Am I Taiki?"},
+{unit:"主語＋be動詞＋名詞疑問文",ja:"僕は大輝ですか？",en:"Am I Taiki?"},
 {unit:"主語＋be動詞＋名詞疑問文",ja:"僕は学生ですか？",en:"Am I a student?"},
 {unit:"主語＋be動詞＋名詞疑問文",ja:"私たちは学生ですか？",en:"Are we students?"},
 {unit:"主語＋be動詞＋名詞疑問文",ja:"あなたは先生ですか？",en:"Are you a teacher?"},
